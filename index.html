@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kidnova – Fun Printables & Activity Books for Kids</title>
+<meta name="description" content="Kidnova makes fun printables and activity books that help kids learn, play and grow: chore charts, reward charts, savings trackers, puzzles and more.">
+<meta property="og:title" content="Kidnova – Play, learn and grow with Nova & Zein">
+<meta property="og:description" content="Fun printables and activity books for kids. Instant digital downloads on Etsy and printed books on Amazon.">
+<meta property="og:image" content="images/logo.png">
+<meta property="og:type" content="website">
+<link rel="icon" href="images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --orange-1:#FFC21A;
+    --orange-2:#FFA800;
+    --orange-3:#FF9000;
+    --blue:#1E6FE8;
+    --blue-dark:#0B4BC9;
+    --blue-light:#2D9CF0;
+    --yellow:#FFE41F;
+    --green:#22B573;
+    --ink:#1D2B53;
+    --white:#ffffff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Nunito',sans-serif;
+    color:var(--ink);
+    background:radial-gradient(ellipse at 50% 0%, var(--orange-1) 0%, var(--orange-2) 55%, var(--orange-3) 100%) fixed;
+    min-height:100vh;
+    overflow-x:hidden;
+  }
+
+  /* ---------- clouds ---------- */
+  .cloud{
+    position:absolute;background:#fff;border-radius:100px;opacity:.85;
+    filter:drop-shadow(0 6px 0 rgba(0,0,0,.06));
+    animation:drift linear infinite;
+    z-index:0;
+  }
+  .cloud::before,.cloud::after{content:"";position:absolute;background:#fff;border-radius:50%}
+  .cloud::before{width:55%;height:180%;top:-90%;left:12%}
+  .cloud::after{width:40%;height:140%;top:-60%;right:12%}
+  .c1{width:170px;height:50px;top:140px;left:-200px;animation-duration:60s}
+  .c2{width:120px;height:38px;top:320px;left:-160px;animation-duration:80s;animation-delay:-30s}
+  .c3{width:210px;height:60px;top:70px;left:-240px;animation-duration:95s;animation-delay:-60s}
+  .c4{width:140px;height:44px;top:520px;left:-180px;animation-duration:70s;animation-delay:-15s}
+  @keyframes drift{from{transform:translateX(0)}to{transform:translateX(calc(100vw + 300px))}}
+
+  /* ---------- header ---------- */
+  header{
+    position:relative;z-index:5;
+    max-width:1200px;margin:0 auto;padding:22px 32px 0;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  header img{height:120px;filter:drop-shadow(0 6px 8px rgba(0,0,0,.25))}
+  .nav-btn{
+    font-family:'Fredoka',sans-serif;font-weight:600;font-size:18px;
+    background:var(--blue);color:#fff;text-decoration:none;
+    padding:12px 26px;border-radius:999px;
+    box-shadow:0 5px 0 var(--blue-dark);transition:transform .15s, box-shadow .15s;
+  }
+  .nav-btn:hover{transform:translateY(2px);box-shadow:0 3px 0 var(--blue-dark)}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;z-index:2;
+    max-width:1200px;margin:0 auto;padding:10px 32px 0;
+    display:grid;grid-template-columns:1fr 1.15fr 1fr;align-items:end;gap:10px;
+  }
+  .kid{position:relative;display:flex;flex-direction:column;align-items:center}
+  .kid img{height:430px;filter:drop-shadow(0 12px 14px rgba(0,0,0,.22));animation:bob 4s ease-in-out infinite}
+  .kid.nova img{animation-delay:-2s}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+  .bubble{
+    position:relative;margin-bottom:18px;
+    background:#fff;border:4px solid var(--blue);border-radius:28px;
+    padding:14px 24px;
+    font-family:'Fredoka',sans-serif;font-weight:700;font-size:28px;color:var(--blue-dark);
+    box-shadow:0 6px 0 rgba(0,0,0,.12);
+    white-space:nowrap;
+  }
+  .bubble::after{
+    content:"";position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);
+    border-width:20px 14px 0;border-style:solid;border-color:var(--blue) transparent transparent;
+  }
+  .bubble::before{
+    content:"";position:absolute;bottom:-13px;left:50%;transform:translateX(-50%);z-index:1;
+    border-width:15px 10px 0;border-style:solid;border-color:#fff transparent transparent;
+  }
+
+  .hero-text{text-align:center;padding-bottom:70px}
+  .hero-text h1{
+    font-family:'Fredoka',sans-serif;font-weight:700;
+    font-size:52px;line-height:1.1;color:#fff;
+    text-shadow:0 4px 0 var(--blue-dark), 0 8px 14px rgba(0,0,0,.2);
+    margin-bottom:18px;
+  }
+  .hero-text p{
+    font-size:20px;font-weight:700;line-height:1.5;color:var(--ink);
+    background:rgba(255,255,255,.8);border-radius:22px;padding:16px 22px;margin-bottom:26px;
+  }
+  .cta{
+    display:inline-block;
+    font-family:'Fredoka',sans-serif;font-weight:700;font-size:22px;
+    background:var(--yellow);color:var(--blue-dark);text-decoration:none;
+    padding:16px 40px;border-radius:999px;border:4px solid var(--blue);
+    box-shadow:0 6px 0 var(--blue-dark);transition:transform .15s, box-shadow .15s;
+  }
+  .cta:hover{transform:translateY(3px);box-shadow:0 3px 0 var(--blue-dark)}
+
+  /* ---------- wave divider ---------- */
+  .wave{display:block;width:100%;height:80px;margin-top:-4px;position:relative;z-index:3}
+
+  /* ---------- products ---------- */
+  .products{
+    position:relative;z-index:3;
+    background:#FFF8E7;
+    padding:20px 32px 90px;
+  }
+  .products h2{
+    text-align:center;font-family:'Fredoka',sans-serif;font-weight:700;
+    font-size:42px;color:var(--blue-dark);margin-bottom:8px;
+  }
+  .products .sub{text-align:center;font-size:18px;font-weight:600;margin-bottom:26px;color:#5a6480}
+  .filters{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:40px}
+  .filter{
+    font-family:'Fredoka',sans-serif;font-weight:600;font-size:18px;cursor:pointer;
+    background:#fff;color:var(--blue-dark);border:3px solid var(--blue);
+    padding:10px 24px;border-radius:999px;box-shadow:0 4px 0 var(--blue-dark);
+    transition:transform .15s, box-shadow .15s, background .15s;
+  }
+  .filter:hover{transform:translateY(2px);box-shadow:0 2px 0 var(--blue-dark)}
+  .filter.active{background:var(--blue);color:#fff}
+  .filter[data-f="digital"].active{background:var(--blue-light);border-color:var(--blue-light);box-shadow:0 4px 0 #1477c4}
+  .filter[data-f="printed"].active{background:var(--green);border-color:var(--green);box-shadow:0 4px 0 #168a56}
+  .card.hide{display:none}
+  .grid{
+    max-width:1100px;margin:0 auto;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:32px;
+  }
+  .card{
+    background:#fff;border-radius:26px;overflow:hidden;
+    border:4px solid #fff;
+    box-shadow:0 10px 24px rgba(29,43,83,.12);
+    display:flex;flex-direction:column;
+    transition:transform .2s, box-shadow .2s;
+  }
+  .card:hover{transform:translateY(-6px);box-shadow:0 18px 30px rgba(29,43,83,.18)}
+  .thumb{position:relative;aspect-ratio:4/3;background:#f2f4fa;overflow:hidden}
+  .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+  .card.printed .thumb img{object-fit:contain;padding:10px}
+  .tag{
+    position:absolute;top:12px;left:12px;
+    font-family:'Fredoka',sans-serif;font-weight:600;font-size:14px;color:#fff;
+    padding:6px 14px;border-radius:999px;
+    box-shadow:0 3px 0 rgba(0,0,0,.18);
+  }
+  .tag.digital{background:var(--blue-light)}
+  .tag.printed{background:var(--green)}
+  .info{padding:18px 20px 22px;display:flex;flex-direction:column;flex:1}
+  .info h3{font-family:'Fredoka',sans-serif;font-weight:600;font-size:20px;line-height:1.25;margin-bottom:6px}
+  .info .note{font-size:15px;color:#5a6480;margin-bottom:6px}
+  .info .kind{font-size:13px;font-weight:700;color:#8a93ad;margin-bottom:16px}
+  .buy-wrap{margin-top:auto;text-align:center}
+  .buy{
+    display:block;
+    font-family:'Fredoka',sans-serif;font-weight:700;font-size:19px;
+    background:var(--orange-2);color:#fff;text-decoration:none;
+    padding:12px 0;border-radius:999px;
+    box-shadow:0 5px 0 #D97700;transition:transform .15s, box-shadow .15s;
+  }
+  .buy:hover{transform:translateY(2px);box-shadow:0 3px 0 #D97700}
+  .where{display:block;font-size:13px;font-weight:700;color:#8a93ad;margin-top:8px}
+
+  footer{
+    background:var(--blue-dark);color:#fff;text-align:center;
+    padding:28px 20px;font-weight:600;font-size:15px;
+  }
+  footer img{height:54px;margin-bottom:8px}
+
+  /* ---------- smaller screens ---------- */
+  @media (max-width:980px){
+    .grid{grid-template-columns:repeat(2,1fr)}
+    .hero{grid-template-columns:1fr 1fr}
+    .hero-text{grid-column:1 / -1;order:-1;padding-bottom:10px}
+    .kid img{height:320px}
+    .bubble{font-size:22px}
+  }
+  @media (max-width:560px){
+    .grid{grid-template-columns:1fr}
+    header{padding:16px 18px 0}
+    header img{height:70px}
+    .nav-btn{font-size:15px;padding:10px 18px}
+    .hero-text h1{font-size:38px}
+    .kid img{height:230px}
+    .bubble{font-size:17px;padding:10px 14px}
+    .products{padding:10px 18px 70px}
+  }
+</style>
+</head>
+<body>
+
+  <div class="cloud c1"></div>
+  <div class="cloud c2"></div>
+  <div class="cloud c3"></div>
+  <div class="cloud c4"></div>
+
+  <header>
+    <a href="#"><img src="images/logo.png" alt="Kidnova logo"></a>
+    <a class="nav-btn" href="#products">Our Products</a>
+  </header>
+
+  <section class="hero">
+    <div class="kid nova">
+      <div class="bubble">Hi, I'm Nova!</div>
+      <img src="images/nova.png" alt="Nova, the Kidnova girl, waving hello">
+    </div>
+
+    <div class="hero-text">
+      <h1>Play, learn and grow with Nova &amp; Zein</h1>
+      <p>We're here to help your kids learn, play and grow with fun printables and activity books: chore charts, reward charts, savings trackers, puzzles and more!</p>
+      <a class="cta" href="#products">See our products</a>
+    </div>
+
+    <div class="kid zein">
+      <div class="bubble">Hi, I'm Zein!</div>
+      <img src="images/zein.png" alt="Zein, the Kidnova boy, waving hello">
+    </div>
+  </section>
+
+  <svg class="wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,40 C240,90 480,0 720,30 C960,60 1200,10 1440,40 L1440,80 L0,80 Z" fill="#FFF8E7"/>
+  </svg>
+
+  <section class="products" id="products">
+    <h2>Our Products</h2>
+    <p class="sub">Instant printables on Etsy &amp; printed activity books on Amazon</p>
+    <div class="filters">
+      <button class="filter active" data-f="all">All</button>
+      <button class="filter" data-f="digital">Digital Downloads</button>
+      <button class="filter" data-f="printed">Printed Books</button>
+    </div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <footer>
+    <img src="images/logo.png" alt="Kidnova"><br>
+    © <span id="year"></span> Kidnova · Fun printables &amp; activity books for kids
+  </footer>
+
+<script src="products.js"></script>
+<script>
+  const grid = document.getElementById('grid');
+  const TYPES = {
+    digital: { tag: 'Digital Download', kind: 'Instant download, print at home', where: 'on Etsy' },
+    printed: { tag: 'Printed Book',     kind: 'Paperback, shipped by Amazon',   where: 'on Amazon' }
+  };
+  PRODUCTS.forEach(p => {
+    const t = TYPES[p.type] || TYPES.digital;
+    const card = document.createElement('article');
+    card.className = 'card ' + p.type;
+    card.innerHTML = `
+      <div class="thumb">
+        <img src="${p.image}" alt="${p.title}" loading="lazy">
+        <span class="tag ${p.type}">${t.tag}</span>
+      </div>
+      <div class="info">
+        <h3>${p.title}</h3>
+        <p class="note">${p.note}</p>
+        <p class="kind">${t.kind}</p>
+        <div class="buy-wrap">
+          <a class="buy" href="${p.link}" target="_blank" rel="noopener">Buy Now</a>
+          <span class="where">${t.where}</span>
+        </div>
+      </div>`;
+    grid.appendChild(card);
+  });
+  document.querySelectorAll('.filter').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.f;
+      document.querySelectorAll('.card').forEach(c => {
+        c.classList.toggle('hide', f !== 'all' && !c.classList.contains(f));
+      });
+    });
+  });
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
