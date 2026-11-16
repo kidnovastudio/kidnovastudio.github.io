@@ -92,6 +92,6 @@ const PRODUCTS = [
     price: "$10.99",
     type: "printed",
     image: "images/color-by-number-toddlers.jpg",
-    link: ""   // paste the Amazon link here when the book is live
+    link: "https://www.amazon.com/dp/B0HRVXPV18"
   }
 ];
