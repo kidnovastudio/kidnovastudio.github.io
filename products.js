@@ -64,14 +64,6 @@ const PRODUCTS = [
     link: "https://www.etsy.com/listing/4550828607/daily-planner-for-students-printable-for"
   },
   {
-    title: "Ramadan Activity Book for Kids (Arabic)",
-    note: "30-day tracker, coloring pages and Eid certificate",
-    type: "digital",
-    image: "https://i.etsystatic.com/47663208/r/il/44f53b/8844190156/il_794xN.8844190156_7rur.jpg",
-    price: "$7.41",
-    link: "https://www.etsy.com/listing/4615581725/ramadan-hero-an-arabic-ramadan-activity"
-  },
-  {
     title: "Picture Sudoku: Cut and Paste Logic Puzzles",
     note: "33 easy & medium picture puzzles, ages 4–6",
     type: "printed",
