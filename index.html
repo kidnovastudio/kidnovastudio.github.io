@@ -292,17 +292,6 @@
   .buy.soon:hover{transform:none;box-shadow:0 5px 0 #a3aac4}
   .price{font-family:'Fredoka',sans-serif;font-weight:700;font-size:26px;color:var(--blue-dark);margin-bottom:14px}
 
-  /* ---------- contact ---------- */
-  .contact{text-align:center;margin-top:60px}
-  .contact a{
-    display:inline-block;
-    font-family:'Fredoka',sans-serif;font-weight:700;font-size:22px;
-    background:var(--blue);color:#fff;text-decoration:none;
-    padding:16px 46px;border-radius:999px;
-    box-shadow:0 6px 0 var(--blue-dark);transition:transform .15s, box-shadow .15s;
-  }
-  .contact a:hover{transform:translateY(3px);box-shadow:0 3px 0 var(--blue-dark)}
-
   footer{
     background:var(--blue-dark);color:#fff;text-align:center;
     padding:28px 20px;font-weight:600;font-size:15px;
@@ -417,7 +406,6 @@
           <div class="buy-wrap"><p class="price">$10.99</p><span class="buy soon">Coming Soon</span></div></div>
       </article>
     </div>
-    <div class="contact"><a id="contactBtn" href="#" target="_blank" rel="noopener">Contact Us</a></div>
   </section>
 
   <footer>
@@ -463,8 +451,6 @@
       });
     });
   });
-  const cb = document.getElementById('contactBtn');
-  if (typeof CONTACT_LINK !== 'undefined' && CONTACT_LINK) { cb.href = CONTACT_LINK; } else { cb.removeAttribute('target'); }
   document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 </body>

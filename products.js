@@ -12,9 +12,6 @@
   Don't forget the comma between blocks.
 */
 
-// Link for the "Contact Us" button (paste your Tally form link between the quotes)
-const CONTACT_LINK = "";
-
 const PRODUCTS = [
   {
     title: "Car Play Mat Printable – Road Number Matching Game",
