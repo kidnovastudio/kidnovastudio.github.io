@@ -3,6 +3,7 @@
   ----------------
   To add a new product, copy one block { ... }, paste it at the end of the list, and change:
     title  : product name shown on the site
+    page   : the product's own page on this site (folder name + "/")
     note   : one short line under the name
     price  : price shown on the card, e.g. "$3.99"
     type   : "digital"  (Etsy printable)   or   "printed"  (Amazon KDP paperback)
@@ -17,6 +18,7 @@ const CONTACT_LINK = "";
 const PRODUCTS = [
   {
     title: "Car Play Mat Printable – Road Number Matching Game",
+    page: "car-play-mat-printable/",
     note: "Parking-lot counting fun for little drivers",
     type: "digital",
     image: "https://i.etsystatic.com/47663208/r/il/b4a536/8710331936/il_794xN.8710331936_5zpl.jpg",
@@ -25,6 +27,7 @@ const PRODUCTS = [
   },
   {
     title: "Kids Savings Tracker – Treasure Map Money Goal Chart",
+    page: "kids-savings-tracker-printable/",
     note: "Teach saving habits with a pocket-money adventure",
     type: "digital",
     image: "https://i.etsystatic.com/47663208/r/il/c48a0f/8758275007/il_794xN.8758275007_aazb.jpg",
@@ -33,6 +36,7 @@ const PRODUCTS = [
   },
   {
     title: "Kids Allowance Chart – Pay Per Chore Money Tracker",
+    page: "kids-allowance-chart-printable/",
     note: "Kids earn for every chore they finish",
     type: "digital",
     image: "https://i.etsystatic.com/47663208/r/il/906bab/8757837681/il_794xN.8757837681_5wki.jpg",
@@ -41,6 +45,7 @@ const PRODUCTS = [
   },
   {
     title: "Space Reward Chart for Kids",
+    page: "space-reward-chart-printable/",
     note: "Sticker behavior tracker that kids love to fill",
     type: "digital",
     image: "https://i.etsystatic.com/47663208/r/il/241728/8757160867/il_794xN.8757160867_7mg8.jpg",
@@ -49,6 +54,7 @@ const PRODUCTS = [
   },
   {
     title: "Space Chore Chart – Weekly Routine Tracker",
+    page: "space-chore-chart-printable/",
     note: "7 chores, one happy weekly routine",
     type: "digital",
     image: "https://i.etsystatic.com/47663208/r/il/f08058/8758072969/il_794xN.8758072969_1vqo.jpg",
@@ -57,6 +63,7 @@ const PRODUCTS = [
   },
   {
     title: "Cute Daily Planner – Woodland Hourly Schedule",
+    page: "kids-daily-planner-printable/",
     note: "Hourly schedule and to-do list for students",
     type: "digital",
     image: "https://i.etsystatic.com/47663208/r/il/4e19b6/8757301625/il_794xN.8757301625_jc3i.jpg",
@@ -65,6 +72,7 @@ const PRODUCTS = [
   },
   {
     title: "Picture Sudoku: Cut and Paste Logic Puzzles",
+    page: "picture-sudoku-for-kids/",
     note: "33 easy & medium picture puzzles, ages 4–6",
     type: "printed",
     image: "https://m.media-amazon.com/images/I/61QtcFwQAvL._SL600_.jpg",
@@ -73,6 +81,7 @@ const PRODUCTS = [
   },
   {
     title: "Duo Game Book: Alphabet Mazes & Tic-Tac-Toe",
+    page: "duo-game-book-for-kids/",
     note: "Face-to-face A to Z maze race for two players, ages 5–8",
     type: "printed",
     image: "https://m.media-amazon.com/images/I/71-iwyCTO3L._SL600_.jpg",
@@ -81,6 +90,7 @@ const PRODUCTS = [
   },
   {
     title: "Color by Number for Toddlers",
+    page: "color-by-number-for-toddlers/",
     note: "68 big & easy pages to learn numbers and colors, ages 3–5",
     price: "$10.99",
     type: "printed",
