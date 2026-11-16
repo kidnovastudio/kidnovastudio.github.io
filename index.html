@@ -36,21 +36,35 @@
     overflow-x:hidden;
   }
 
-  /* ---------- clouds ---------- */
+  /* ---------- clouds (static) ---------- */
   .cloud{
-    position:absolute;background:#fff;border-radius:100px;opacity:.85;
+    position:absolute;background:#fff;border-radius:100px;opacity:.9;
     filter:drop-shadow(0 6px 0 rgba(0,0,0,.06));
-    animation:drift linear infinite;
-    z-index:0;
+    z-index:0;pointer-events:none;
   }
   .cloud::before,.cloud::after{content:"";position:absolute;background:#fff;border-radius:50%}
   .cloud::before{width:55%;height:180%;top:-90%;left:12%}
   .cloud::after{width:40%;height:140%;top:-60%;right:12%}
-  .c1{width:170px;height:50px;top:140px;left:-200px;animation-duration:60s}
-  .c2{width:120px;height:38px;top:320px;left:-160px;animation-duration:80s;animation-delay:-30s}
-  .c3{width:210px;height:60px;top:70px;left:-240px;animation-duration:95s;animation-delay:-60s}
-  .c4{width:140px;height:44px;top:520px;left:-180px;animation-duration:70s;animation-delay:-15s}
-  @keyframes drift{from{transform:translateX(0)}to{transform:translateX(calc(100vw + 300px))}}
+  .c1{width:190px;height:54px;top:70px;left:30%}
+  .c2{width:150px;height:44px;top:60px;right:7%}
+
+  /* ---------- birds (flying) ---------- */
+  .birds{position:absolute;top:0;left:0;width:100%;height:150px;overflow:hidden;z-index:1;pointer-events:none}
+  .bird{position:absolute;left:-80px;animation:fly linear infinite}
+  .bird svg{display:block;animation:flap .45s ease-in-out infinite alternate;transform-origin:50% 60%}
+  .b1{top:22px;animation-duration:26s}
+  .b2{top:48px;animation-duration:34s;animation-delay:-12s}
+  .b3{top:14px;animation-duration:30s;animation-delay:-22s}
+  .b2 svg{animation-duration:.38s}
+  .b3 svg{animation-duration:.5s}
+  @keyframes fly{
+    0%{transform:translate(0,0)}
+    25%{transform:translate(25vw,12px)}
+    50%{transform:translate(50vw,-6px)}
+    75%{transform:translate(75vw,10px)}
+    100%{transform:translate(calc(100vw + 160px),0)}
+  }
+  @keyframes flap{from{transform:scaleY(1)}to{transform:scaleY(.35)}}
 
   /* ---------- header ---------- */
   header{
@@ -59,13 +73,6 @@
     display:flex;align-items:center;justify-content:space-between;
   }
   header img{height:120px;filter:drop-shadow(0 6px 8px rgba(0,0,0,.25))}
-  .nav-btn{
-    font-family:'Fredoka',sans-serif;font-weight:600;font-size:18px;
-    background:var(--blue);color:#fff;text-decoration:none;
-    padding:12px 26px;border-radius:999px;
-    box-shadow:0 5px 0 var(--blue-dark);transition:transform .15s, box-shadow .15s;
-  }
-  .nav-btn:hover{transform:translateY(2px);box-shadow:0 3px 0 var(--blue-dark)}
 
   /* ---------- hero ---------- */
   .hero{
@@ -122,13 +129,13 @@
   .products{
     position:relative;z-index:3;
     background:#FFF8E7;
-    padding:20px 32px 90px;
+    padding:20px 32px 70px;
   }
   .products h2{
     text-align:center;font-family:'Fredoka',sans-serif;font-weight:700;
     font-size:42px;color:var(--blue-dark);margin-bottom:8px;
   }
-  .products .sub{text-align:center;font-size:18px;font-weight:600;margin-bottom:26px;color:#5a6480}
+  /* .sub removed */ .products .sub{text-align:center;font-size:18px;font-weight:600;margin-bottom:26px;color:#5a6480}
   .filters{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:40px}
   .filter{
     font-family:'Fredoka',sans-serif;font-weight:600;font-size:18px;cursor:pointer;
@@ -177,7 +184,18 @@
     box-shadow:0 5px 0 #D97700;transition:transform .15s, box-shadow .15s;
   }
   .buy:hover{transform:translateY(2px);box-shadow:0 3px 0 #D97700}
-  .where{display:block;font-size:13px;font-weight:700;color:#8a93ad;margin-top:8px}
+  .price{font-family:'Fredoka',sans-serif;font-weight:700;font-size:26px;color:var(--blue-dark);margin-bottom:14px}
+
+  /* ---------- contact ---------- */
+  .contact{text-align:center;margin-top:60px}
+  .contact a{
+    display:inline-block;
+    font-family:'Fredoka',sans-serif;font-weight:700;font-size:22px;
+    background:var(--blue);color:#fff;text-decoration:none;
+    padding:16px 46px;border-radius:999px;
+    box-shadow:0 6px 0 var(--blue-dark);transition:transform .15s, box-shadow .15s;
+  }
+  .contact a:hover{transform:translateY(3px);box-shadow:0 3px 0 var(--blue-dark)}
 
   footer{
     background:var(--blue-dark);color:#fff;text-align:center;
@@ -197,7 +215,6 @@
     .grid{grid-template-columns:1fr}
     header{padding:16px 18px 0}
     header img{height:70px}
-    .nav-btn{font-size:15px;padding:10px 18px}
     .hero-text h1{font-size:38px}
     .kid img{height:230px}
     .bubble{font-size:17px;padding:10px 14px}
@@ -209,12 +226,14 @@
 
   <div class="cloud c1"></div>
   <div class="cloud c2"></div>
-  <div class="cloud c3"></div>
-  <div class="cloud c4"></div>
+  <div class="birds" aria-hidden="true">
+    <div class="bird b1"><svg width="46" height="22" viewBox="0 0 46 22"><path d="M2 12 Q12 0 23 13 Q34 0 44 12" fill="none" stroke="#1D2B53" stroke-width="3.5" stroke-linecap="round"/></svg></div>
+    <div class="bird b2"><svg width="34" height="16" viewBox="0 0 46 22"><path d="M2 12 Q12 0 23 13 Q34 0 44 12" fill="none" stroke="#1D2B53" stroke-width="3.5" stroke-linecap="round"/></svg></div>
+    <div class="bird b3"><svg width="28" height="14" viewBox="0 0 46 22"><path d="M2 12 Q12 0 23 13 Q34 0 44 12" fill="none" stroke="#1D2B53" stroke-width="3.5" stroke-linecap="round"/></svg></div>
+  </div>
 
   <header>
     <a href="#"><img src="images/logo.png" alt="Kidnova logo"></a>
-    <a class="nav-btn" href="#products">Our Products</a>
   </header>
 
   <section class="hero">
@@ -240,14 +259,13 @@
   </svg>
 
   <section class="products" id="products">
-    <h2>Our Products</h2>
-    <p class="sub">Instant printables on Etsy &amp; printed activity books on Amazon</p>
     <div class="filters">
       <button class="filter active" data-f="all">All</button>
       <button class="filter" data-f="digital">Digital Downloads</button>
       <button class="filter" data-f="printed">Printed Books</button>
     </div>
     <div class="grid" id="grid"></div>
+    <div class="contact"><a id="contactBtn" href="#" target="_blank" rel="noopener">Contact Us</a></div>
   </section>
 
   <footer>
@@ -259,8 +277,8 @@
 <script>
   const grid = document.getElementById('grid');
   const TYPES = {
-    digital: { tag: 'Digital Download', kind: 'Instant download, print at home', where: 'on Etsy' },
-    printed: { tag: 'Printed Book',     kind: 'Paperback, shipped by Amazon',   where: 'on Amazon' }
+    digital: { tag: 'Digital Download', kind: 'Instant download, print at home' },
+    printed: { tag: 'Printed Book',     kind: 'Paperback, shipped by Amazon' }
   };
   PRODUCTS.forEach(p => {
     const t = TYPES[p.type] || TYPES.digital;
@@ -276,8 +294,8 @@
         <p class="note">${p.note}</p>
         <p class="kind">${t.kind}</p>
         <div class="buy-wrap">
+          ${p.price ? `<p class="price">${p.price}</p>` : ''}
           <a class="buy" href="${p.link}" target="_blank" rel="noopener">Buy Now</a>
-          <span class="where">${t.where}</span>
         </div>
       </div>`;
     grid.appendChild(card);
@@ -292,6 +310,8 @@
       });
     });
   });
+  const cb = document.getElementById('contactBtn');
+  if (typeof CONTACT_LINK !== 'undefined' && CONTACT_LINK) { cb.href = CONTACT_LINK; } else { cb.removeAttribute('target'); }
   document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 </body>
