@@ -117,5 +117,18 @@ footer a{color:#fff}
   <div class="mgrid"><a class="mcard" href="../car-play-mat-printable/"><img src="https://i.etsystatic.com/47663208/r/il/b4a536/8710331936/il_794xN.8710331936_5zpl.jpg" alt="Car Play Mat Printable – Road Number Matching Game" loading="lazy"><span>Car Play Mat Printable – Road Number Matching Game</span></a><a class="mcard" href="../kids-savings-tracker-printable/"><img src="https://i.etsystatic.com/47663208/r/il/c48a0f/8758275007/il_794xN.8758275007_aazb.jpg" alt="Kids Savings Tracker – Treasure Map Money Goal Chart" loading="lazy"><span>Kids Savings Tracker – Treasure Map Money Goal Chart</span></a><a class="mcard" href="../kids-allowance-chart-printable/"><img src="https://i.etsystatic.com/47663208/r/il/906bab/8757837681/il_794xN.8757837681_5wki.jpg" alt="Kids Allowance Chart – Pay Per Chore Money Tracker" loading="lazy"><span>Kids Allowance Chart – Pay Per Chore Money Tracker</span></a></div>
 </section>
 <footer><a href="../">Kidnova</a> &middot; Fun printables &amp; activity books for kids</footer>
+<script>
+  // GoatCounter: count clicks on every Buy Now button as an event
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a.buy');
+    if (!a || !window.goatcounter || !window.goatcounter.count) return;
+    var card = a.closest('article');
+    var name = card ? card.querySelector('h3').textContent : (document.querySelector('h1') || {}).textContent || document.title;
+    var store = a.href.indexOf('amazon.') > -1 ? 'amazon' : (a.href.indexOf('etsy.') > -1 ? 'etsy' : 'other');
+    var slug = name.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    window.goatcounter.count({ path: 'buy-' + store + '-' + slug, title: 'Buy Now: ' + name.trim() + ' (' + store + ')', event: true });
+  });
+</script>
+<script data-goatcounter="https://kidnova.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
