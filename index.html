@@ -184,6 +184,8 @@
     box-shadow:0 5px 0 #D97700;transition:transform .15s, box-shadow .15s;
   }
   .buy:hover{transform:translateY(2px);box-shadow:0 3px 0 #D97700}
+  .buy.soon{background:#c5cbe0;box-shadow:0 5px 0 #a3aac4;cursor:default}
+  .buy.soon:hover{transform:none;box-shadow:0 5px 0 #a3aac4}
   .price{font-family:'Fredoka',sans-serif;font-weight:700;font-size:26px;color:var(--blue-dark);margin-bottom:14px}
 
   /* ---------- contact ---------- */
@@ -295,7 +297,7 @@
         <p class="kind">${t.kind}</p>
         <div class="buy-wrap">
           ${p.price ? `<p class="price">${p.price}</p>` : ''}
-          <a class="buy" href="${p.link}" target="_blank" rel="noopener">Buy Now</a>
+          ${p.link ? `<a class="buy" href="${p.link}" target="_blank" rel="noopener">Buy Now</a>` : `<span class="buy soon">Coming Soon</span>`}
         </div>
       </div>`;
     grid.appendChild(card);

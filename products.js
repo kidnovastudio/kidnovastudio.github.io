@@ -78,5 +78,13 @@ const PRODUCTS = [
     image: "https://m.media-amazon.com/images/I/71-iwyCTO3L._SL600_.jpg",
     price: "$13.49",
     link: "https://www.amazon.com/dp/B0HRQ8C9HR"
+  },
+  {
+    title: "Color by Number for Toddlers",
+    note: "68 big & easy pages to learn numbers and colors, ages 3–5",
+    price: "$10.99",
+    type: "printed",
+    image: "images/color-by-number-toddlers.jpg",
+    link: ""   // paste the Amazon link here when the book is live
   }
 ];
