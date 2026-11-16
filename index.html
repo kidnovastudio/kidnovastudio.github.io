@@ -453,5 +453,18 @@
   });
   document.getElementById('year').textContent = new Date().getFullYear();
 </script>
+<script>
+  // GoatCounter: count clicks on every Buy Now button as an event
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a.buy');
+    if (!a || !window.goatcounter || !window.goatcounter.count) return;
+    var card = a.closest('article');
+    var name = card ? card.querySelector('h3').textContent : (document.querySelector('h1') || {}).textContent || document.title;
+    var store = a.href.indexOf('amazon.') > -1 ? 'amazon' : (a.href.indexOf('etsy.') > -1 ? 'etsy' : 'other');
+    var slug = name.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    window.goatcounter.count({ path: 'buy-' + store + '-' + slug, title: 'Buy Now: ' + name.trim() + ' (' + store + ')', event: true });
+  });
+</script>
+<script data-goatcounter="https://kidnova.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
