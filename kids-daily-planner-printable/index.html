@@ -117,5 +117,18 @@ footer a{color:#fff}
   <div class="mgrid"><a class="mcard" href="../picture-sudoku-for-kids/"><img src="https://m.media-amazon.com/images/I/61QtcFwQAvL._SL600_.jpg" alt="Picture Sudoku: Cut and Paste Logic Puzzles" loading="lazy"><span>Picture Sudoku: Cut and Paste Logic Puzzles</span></a><a class="mcard" href="../duo-game-book-for-kids/"><img src="https://m.media-amazon.com/images/I/71-iwyCTO3L._SL600_.jpg" alt="Duo Game Book: Alphabet Mazes &amp; Tic-Tac-Toe" loading="lazy"><span>Duo Game Book: Alphabet Mazes &amp; Tic-Tac-Toe</span></a><a class="mcard" href="../color-by-number-for-toddlers/"><img src="../images/color-by-number-toddlers.jpg" alt="Color by Number for Toddlers" loading="lazy"><span>Color by Number for Toddlers</span></a></div>
 </section>
 <footer><a href="../">Kidnova</a> &middot; Fun printables &amp; activity books for kids</footer>
+<script>
+  // GoatCounter: count clicks on every Buy Now button as an event
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a.buy');
+    if (!a || !window.goatcounter || !window.goatcounter.count) return;
+    var card = a.closest('article');
+    var name = card ? card.querySelector('h3').textContent : (document.querySelector('h1') || {}).textContent || document.title;
+    var store = a.href.indexOf('amazon.') > -1 ? 'amazon' : (a.href.indexOf('etsy.') > -1 ? 'etsy' : 'other');
+    var slug = name.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    window.goatcounter.count({ path: 'buy-' + store + '-' + slug, title: 'Buy Now: ' + name.trim() + ' (' + store + ')', event: true });
+  });
+</script>
+<script data-goatcounter="https://kidnova.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
