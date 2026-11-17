@@ -19,7 +19,7 @@ const PRODUCTS = [
     note: "Parking-lot counting fun for little drivers",
     type: "digital",
     image: "https://i.etsystatic.com/47663208/r/il/b4a536/8710331936/il_794xN.8710331936_5zpl.jpg",
-    price: "$3.99",
+    price: "$3.50",
     link: "https://www.etsy.com/listing/1579407304/road-themed-number-matching-activity-a3"
   },
   {
@@ -28,7 +28,7 @@ const PRODUCTS = [
     note: "Teach saving habits with a pocket-money adventure",
     type: "digital",
     image: "https://i.etsystatic.com/47663208/r/il/c48a0f/8758275007/il_794xN.8758275007_aazb.jpg",
-    price: "$4.55",
+    price: "$3.99",
     link: "https://www.etsy.com/listing/4557424901/explorers-savings-tracker-printable-kids"
   },
   {
@@ -37,7 +37,7 @@ const PRODUCTS = [
     note: "Kids earn for every chore they finish",
     type: "digital",
     image: "https://i.etsystatic.com/47663208/r/il/906bab/8757837681/il_794xN.8757837681_5wki.jpg",
-    price: "$4.56",
+    price: "$4.00",
     link: "https://www.etsy.com/listing/4548995049/kids-chore-chart-with-price-11-chores"
   },
   {
@@ -46,7 +46,7 @@ const PRODUCTS = [
     note: "Sticker behavior tracker that kids love to fill",
     type: "digital",
     image: "https://i.etsystatic.com/47663208/r/il/241728/8757160867/il_794xN.8757160867_7mg8.jpg",
-    price: "$5.13",
+    price: "$4.50",
     link: "https://www.etsy.com/listing/4549071026/space-reward-chart-for-kids-printable"
   },
   {
@@ -55,7 +55,7 @@ const PRODUCTS = [
     note: "7 chores, one happy weekly routine",
     type: "digital",
     image: "https://i.etsystatic.com/47663208/r/il/f08058/8758072969/il_794xN.8758072969_1vqo.jpg",
-    price: "$3.99",
+    price: "$3.50",
     link: "https://www.etsy.com/listing/4548579176/task-treasure-7-chores-kids-chore-chart"
   },
   {
@@ -64,7 +64,7 @@ const PRODUCTS = [
     note: "Hourly schedule and to-do list for students",
     type: "digital",
     image: "https://i.etsystatic.com/47663208/r/il/4e19b6/8757301625/il_794xN.8757301625_jc3i.jpg",
-    price: "$3.42",
+    price: "$3.00",
     link: "https://www.etsy.com/listing/4550828607/daily-planner-for-students-printable-for"
   },
   {
