@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://kidnovastudio.github.io/sitemap.xml
+Sitemap: https://kidnovastudio.github.io/sitemap-pages.xml
