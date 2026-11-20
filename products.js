@@ -93,5 +93,14 @@ const PRODUCTS = [
     type: "printed",
     image: "images/color-by-number-toddlers.jpg",
     link: "https://www.amazon.com/dp/B0HRVXPV18"
+  },
+  {
+    title: "Fun Math Coloring: Addition & Subtraction",
+    page: "fun-math-coloring-book/",
+    note: "29 color by sum & difference pictures within 10, ages 4–8",
+    price: "$13.99",
+    type: "printed",
+    image: "https://m.media-amazon.com/images/I/61NLlwugPnL._SL600_.jpg",
+    link: "https://www.amazon.com/dp/B0HS5851RD"
   }
 ];
