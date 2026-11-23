@@ -88,25 +88,39 @@ main{max-width:780px;margin:22px auto 40px;padding:0 14px}
 .prev canvas{display:block;width:100%;height:auto}
 
 /* Sudoku */
-.sd{display:grid;gap:9px;margin:0 auto;background:#1d2b53;padding:6px;border-radius:16px}
-.sd .box{display:grid;gap:3px;background:#1d2b53}
-.sd .c{aspect-ratio:1;background:#fff;border-radius:6px;display:grid;place-items:center;user-select:none;min-width:0;overflow:hidden;line-height:1}
-.sd .c.g{background:#fff4d6}
-.sd .c.s{outline:3px solid var(--blue);outline-offset:-3px}
+.sdbook{margin:6px auto 0;background:#fff;border:2px solid #e3e8f5;border-radius:18px;overflow:hidden;box-shadow:0 6px 16px rgba(29,43,83,.08);padding-bottom:12px}
+.sdbar{display:flex;align-items:center;justify-content:space-between;background:#2aa3e0;padding:6px 14px}
+.sdbar img{height:38px;width:auto}.sdbar b{font-family:Fredoka;color:#ffe14d}
+.sdbar span{font-family:Fredoka;font-weight:700;color:#fff;font-size:20px}
+.sdhow{margin:8px 12px!important;text-align:center;font-size:13.5px}
+.sd{display:grid;gap:3px;margin:0 12px;background:#1d1d1d;border:3px solid #1d1d1d}
+.sd .box{display:grid;gap:1.5px;background:#1d1d1d}
+.sd .c{aspect-ratio:1;background:#fff;display:grid;place-items:center;user-select:none;min-width:0;overflow:hidden;cursor:pointer}
+.sd .c svg{width:80%;height:80%;display:block}
+.sd .c.g{cursor:default}
+.sd .c.s{background:#e3f3ff;box-shadow:inset 0 0 0 3px var(--blue)}
 .sd .c.x{background:#ffe3e3}
-.pal{display:flex;justify-content:center;gap:8px;margin-top:14px;flex-wrap:wrap}
-.pal button{width:60px;height:60px;border-radius:16px;background:#f6f8ff;border:2px solid #e2e8fb;font-size:32px}
-.pal button.er{font-size:14px;font-weight:700;color:var(--muted);width:auto;padding:0 12px}
+.pal{display:flex;justify-content:center;margin:22px 12px 0;padding-top:2px}
+.pal button{position:relative;flex:1;max-width:130px;aspect-ratio:1;background:#fff;border:2px dashed #555;margin-left:-2px;display:grid;place-items:center;padding:0}
+.pal button svg{width:72%;height:72%;display:block}
+.pal button:before{content:"✂";position:absolute;top:-17px;left:4px;font-size:16px;color:#333;line-height:1}
+.pal button:active{background:#e3f3ff}
+.sdfoot{display:flex;justify-content:space-between;align-items:center;margin:10px 12px 0;font-size:13px;color:var(--muted);font-weight:600}
+.sdfoot .er{background:#eef3ff;color:var(--bd);border-radius:999px;padding:7px 14px;font-weight:700;font-size:13px}
+.lvb .sdi{display:inline-block;width:22px;height:22px}.lvb .sdi svg{width:100%;height:100%;display:block}
 
 /* Color by math */
-.key{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:12px}
-.cr{display:flex;align-items:center;gap:6px;padding:6px 12px 6px 6px;border-radius:999px;background:#f6f8ff;border:2px solid #e2e8fb;font-weight:700;font-size:15px;color:var(--ink)}
-.cr i{width:26px;height:26px;border-radius:50%;display:block;border:2px solid rgba(0,0,0,.12)}
-.cr.on{border-color:var(--ink);background:#fff;transform:scale(1.06)}
-.cbs{width:min(100%,440px);display:block;margin:0 auto;border-radius:18px;background:#fff;border:3px solid #1d2b53}
-.cbs .r{stroke:#1d2b53;stroke-width:3;cursor:pointer;transition:fill .25s}
-.cbs text{font-family:Poppins,sans-serif;font-weight:700;font-size:14px;fill:#1d2b53;pointer-events:none;text-anchor:middle;dominant-baseline:middle;paint-order:stroke;stroke:#fff;stroke-width:3px}
-.cbs text.done{opacity:0}
+.cbbook{width:min(100%,560px);margin:6px auto 0;background:#fff;border:2px solid #e3e8f5;border-radius:18px;overflow:hidden;box-shadow:0 6px 16px rgba(29,43,83,.08);padding-bottom:12px}
+.cbhow{margin:8px 12px!important;text-align:center;font-size:13.5px}
+.key{display:grid;grid-template-columns:repeat(auto-fill,minmax(82px,1fr));gap:4px 4px;margin:0 12px;border:3px solid #1d1d1d;border-bottom:0;padding:8px 10px}
+.cr{display:flex;align-items:center;gap:4px;padding:3px 4px;border-radius:10px;background:#fff;border:2px solid transparent;font-weight:700;color:#1d1d1d;font-family:Poppins,sans-serif}
+.cr svg{width:56px;height:17px;flex:none;font-family:Poppins,sans-serif}
+.cr b{font-size:16px}
+.cr.on{border-color:var(--blue);background:#e3f3ff}
+.cbs{width:calc(100% - 24px);display:block;margin:0 12px;border-radius:0;background:#fff;border:3px solid #1d1d1d}
+.cbs .r{stroke:#1d1d1d;stroke-width:2.6;cursor:pointer;transition:fill .25s}
+.cbs text{font-family:Poppins,sans-serif;font-weight:700;font-size:14px;fill:#1d1d1d;pointer-events:none;text-anchor:middle;dominant-baseline:middle;paint-order:stroke;stroke:#fff;stroke-width:3px}
+.cbs text.done{opacity:1}
 .pics{display:flex;justify-content:center;gap:8px;margin-bottom:12px}
 .pics button{padding:6px 12px;border-radius:12px;background:#f6f8ff;border:2px solid #e2e8fb;font-size:22px}
 .pics button.on{border-color:var(--blue);background:#fff}
@@ -221,7 +235,7 @@ footer a{color:var(--bd)}
 
 <section class="game" id="g-sudoku">
   <h2>Picture Sudoku</h2>
-  <p class="how">15 levels, new pictures every level. Every row, column and box has each picture once.</p>
+  <p class="how">15 levels, from easy 4×4 to tricky 6×6. Every row, column and box has each picture once.</p>
   <div id="sdWrap"></div>
   <a class="cta big" href="https://kidnovastudio.github.io/picture-sudoku-for-kids/" target="_blank" rel="noopener"><img id="ctaSudo" class="tall" alt="Picture Sudoku book cover"><span><small>33 more puzzles to cut and paste</small><b>Picture Sudoku for Kids Ages 4–6 (Book) ›</b></span></a>
 </section>
@@ -540,7 +554,7 @@ function renderMap(g){
   if(!PREMIUM)h+=`<div class="free-banner"><span>${prog.free[g]?'You played your free level.':'🎁 Level 1 is free to try!'}</span><span class="fb-btns"><button class="btn green" data-pw>🔓 Unlock all 15 levels</button><button class="btn ghost" data-key>🔑 I have a key</button></span></div>`;
   TIERS.forEach((t,ti)=>{h+=`<div class="tier"><div class="tier-h" style="background:${t[1]}">${t[0]}</div><div class="tier-l">`;
     for(let k=1;k<=3;k++){const n=ti*3+k,open=isOpen(g,n),st=done[n];
-      h+=`<button class="lvb ${st?'done':open?'open':'lock'}" data-n="${n}" style="--c:${t[1]}"><span class="num">${open||st?n:'🔒'}</span><span class="st">${st?starsTxt(st):open?'Play':''}</span><span class="ic">${g==='color'?PICS[n-1].icon:SDS[n-1][0]}</span></button>`}
+      h+=`<button class="lvb ${st?'done':open?'open':'lock'}" data-n="${n}" style="--c:${t[1]}"><span class="num">${open||st?n:'🔒'}</span><span class="st">${st?starsTxt(st):open?'Play':''}</span><span class="ic">${g==='color'?PICS[n-1].icon:sdIcon(n)}</span></button>`}
     h+='</div></div>'});
   wrap.innerHTML=h;
   wrap.querySelectorAll('[data-pw]').forEach(b=>b.onclick=()=>paywall());
@@ -593,12 +607,16 @@ let cb=null;
 function cbStart(n){const c=CBL[n-1],pic=PICS[n-1];const used=[...new Set(pic.r.map(r=>r[2]))];
   const range=[];for(let v=c.min;v<=c.max;v++)range.push(v);const nums=shuffle(range).slice(0,used.length);const key={};used.forEach((u,i)=>key[u]=nums[i]);
   cb={n,c,key,sel:null,miss:0,lives:c.lives||0,over:false,pic,regions:pic.r.map(r=>({shape:r[0],pos:r[1],color:r[2],ans:key[r[2]],q:gen(key[r[2]],c),done:false}))};cbDraw()}
+const CRNAME={dark:'black'};
+const crayonSVG=(col,name)=>`<svg viewBox="0 0 92 26" aria-hidden="true"><path d="M8 3 H74 L88 13 L74 23 H8 Q2 23 2 13 Q2 3 8 3Z" fill="${col}" stroke="#1d1d1d" stroke-width="1.6"/><rect x="18" y="6" width="42" height="14" rx="3" fill="#fff" stroke="#1d1d1d" stroke-width="1"/><text x="39" y="14.5" font-size="9" font-weight="700" text-anchor="middle" dominant-baseline="middle" fill="#1d1d1d">${name}</text></svg>`;
 function cbDraw(){const w=$('#cbWrap');const order=Object.keys(cb.key).sort((a,b)=>cb.key[a]-cb.key[b]);const fs=cb.n>=13?12:14;
-  const extra=cb.lives?`❤️ ${cb.lives-cb.miss}`:`✖ ${cb.miss}`;
-  w.innerHTML=topbar('color',cb.n,extra)+`<p class="how" style="margin:8px 0">${cb.pic.icon} ${cb.pic.name} · ${CBHINT[cb.n-1]}</p>
-  <div class="key">${order.map(k=>`<button class="cr ${cb.sel===k?'on':''}" data-k="${k}"><i style="background:${COLORS[k]}"></i>${cb.key[k]}</button>`).join('')}</div>
+  const extra=cb.lives?`❤️ ${cb.lives-cb.miss}`:`✖ ${cb.miss}`;const lg=document.querySelector('header .logo');
+  w.innerHTML=topbar('color',cb.n,extra)+`<div class="cbbook">
+  <div class="sdbar">${lg?`<img src="${lg.src}" alt="Kidnova">`:'<b>KIDNOVA</b>'}<span>Level ${cb.n}</span></div>
+  <p class="how cbhow">${cb.pic.icon} ${cb.pic.name} · ${CBHINT[cb.n-1]}. Pick a crayon, then tap every shape whose answer matches its number.</p>
+  <div class="key">${order.map(k=>`<button class="cr ${cb.sel===k?'on':''}" data-k="${k}" aria-label="${CRNAME[k]||k} ${cb.key[k]}">${crayonSVG(COLORS[k],CRNAME[k]||k)}<b>${cb.key[k]}</b></button>`).join('')}</div>
   <svg class="cbs" viewBox="0 0 400 340">${cb.regions.map((r,i)=>r.shape.replace(/\/>$/,` class="r" data-i="${i}" fill="${r.done?COLORS[r.color]:'#fff'}"/>`)).join('')}<g style="pointer-events:none">${cb.pic.deco||''}</g>
-  ${cb.regions.map((r,i)=>`<text x="${r.pos[0]}" y="${r.pos[1]}" class="${r.done?'done':''}" data-t="${i}" style="font-size:${fs}px">${r.q}</text>`).join('')}</svg>
+  ${cb.regions.map((r,i)=>`<text x="${r.pos[0]}" y="${r.pos[1]}" class="${r.done?'done':''}" data-t="${i}" style="font-size:${fs}px">${r.q}</text>`).join('')}</svg></div>
   <div class="msg" id="cbm">${cb.sel?'':'Pick a crayon first 🖍️'}</div>`;
   w.querySelector('[data-back]').onclick=()=>renderMap('color');
   w.querySelectorAll('.cr').forEach(b=>b.onclick=()=>{if(cb.over)return;cb.sel=b.dataset.k;w.querySelectorAll('.cr').forEach(x=>x.classList.toggle('on',x===b));$('#cbm').textContent='';$('#cbm').className='msg'});
@@ -611,11 +629,19 @@ function cbDraw(){const w=$('#cbWrap');const order=Object.keys(cb.key).sort((a,b
 }
 
 /* ---------- Picture Sudoku ---------- */
-const SDS=[['🍎','🍌','🍇','🍓'],['🐶','🐱','🐰','🐻'],['🚗','🚌','🚲','🚂'],['🚀','🌙','⭐','🪐'],['🐟','🐙','🦀','🐳'],['🍭','🍩','🍪','🧁'],
- ['⚽','🏀','🎾','🏈','⚾','🏐'],['🐦','🦉','🦆','🐧','🦜','🐓'],['🐝','🦋','🐞','🐛','🐜','🦗'],['🥕','🥦','🌽','🍅','🥒','🍆'],['🐮','🐷','🐑','🐔','🐴','🐐'],['☀️','🌧️','⛄','🌈','⚡','☁️'],
- ['✏️','📚','🎒','📏','✂️','🖍️'],['🎸','🥁','🎺','🎹','🎻','🎤'],['🦖','🦕','🥚','🌋','🦴','🌿']];
-const SDN=['Fruits','Pets','Vehicles','Space','Sea','Sweets','Sports','Birds','Bugs','Veggies','Farm','Weather','School','Music','Dinosaurs'];
-const SDL=[[4,12],[4,10],[4,8],[4,6],[4,5],[4,4],[6,20],[6,18],[6,16],[6,14],[6,12],[6,11],[6,10],[6,9],[6,8]];
+/* cute shapes drawn for Kidnova (original art, same set in every level) */
+const sdFace=(cx,cy,s)=>`<g transform="translate(${cx} ${cy}) scale(${s})"><circle cx="-9" cy="-2" r="3.2" fill="#3a2a2a"/><circle cx="9" cy="-2" r="3.2" fill="#3a2a2a"/><circle cx="-8" cy="-3.2" r="1" fill="#fff"/><circle cx="10" cy="-3.2" r="1" fill="#fff"/><path d="M-5 5 q5 5 10 0" fill="none" stroke="#3a2a2a" stroke-width="2.2" stroke-linecap="round"/><ellipse cx="-15" cy="5" rx="4" ry="2.6" fill="#ff8fa3" opacity=".75"/><ellipse cx="15" cy="5" rx="4" ry="2.6" fill="#ff8fa3" opacity=".75"/></g>`;
+const SDK={
+ heart:`<svg viewBox="0 0 100 100" aria-label="heart"><path d="M50 86 C18 64 8 46 14 31 C20 16 40 14 50 30 C60 14 80 16 86 31 C92 46 82 64 50 86Z" fill="#ff5c8a" stroke="#c9346a" stroke-width="3"/><ellipse cx="30" cy="32" rx="7" ry="4" fill="#fff" opacity=".5" transform="rotate(-30 30 32)"/>${sdFace(50,52,1.35)}</svg>`,
+ star:`<svg viewBox="0 0 100 100" aria-label="star"><path d="M50 8 L61 37 L92 38 L67 57 L76 88 L50 70 L24 88 L33 57 L8 38 L39 37Z" fill="#ffd23f" stroke="#e0a400" stroke-width="3" stroke-linejoin="round"/>${sdFace(50,54,1.15)}</svg>`,
+ cloud:`<svg viewBox="0 0 100 100" aria-label="cloud"><path d="M24 74 C10 74 6 56 18 50 C16 36 32 28 42 36 C46 22 68 22 72 38 C86 36 94 50 86 60 C92 70 84 76 76 74Z" fill="#7fd1ff" stroke="#3b9fd6" stroke-width="3"/>${sdFace(52,57,1.3)}</svg>`,
+ leaf:`<svg viewBox="0 0 100 100" aria-label="leaf"><path d="M50 6 C78 22 90 50 74 74 C66 86 56 90 50 92 C44 90 34 86 26 74 C10 50 22 22 50 6Z" fill="#4cd07d" stroke="#25a057" stroke-width="3"/><path d="M50 92 L50 98" stroke="#25a057" stroke-width="4" stroke-linecap="round"/>${sdFace(50,56,1.2)}</svg>`,
+ moon:`<svg viewBox="0 0 100 100" aria-label="moon"><path d="M60 8 C30 10 10 32 12 58 C14 82 36 96 60 92 C74 90 84 82 90 72 C62 76 44 58 44 38 C44 26 50 14 60 8Z" fill="#b48cff" stroke="#7b55d1" stroke-width="3" stroke-linejoin="round"/>${sdFace(32,62,.95)}</svg>`,
+ flower:`<svg viewBox="0 0 100 100" aria-label="flower"><g fill="#ff9f43" stroke="#e07812" stroke-width="3">${[0,72,144,216,288].map(a=>`<circle cx="${(50+26*Math.sin(a*Math.PI/180)).toFixed(1)}" cy="${(50-26*Math.cos(a*Math.PI/180)).toFixed(1)}" r="17"/>`).join('')}</g><circle cx="50" cy="50" r="22" fill="#ffe27a" stroke="#e0a400" stroke-width="3"/>${sdFace(50,52,1.05)}</svg>`};
+const SD4=['heart','star','cloud','leaf'], SD6=['heart','star','cloud','leaf','moon','flower'];
+const SDS=Array.from({length:15},(_,i)=>i<6?SD4:SD6);
+const sdIcon=n=>`<span class="sdi">${SDK[SDS[n-1][(n-1)%SDS[n-1].length]]}</span>`;
+const SDL=[[4,11],[4,9],[4,8],[4,6],[4,5],[4,4],[6,20],[6,18],[6,16],[6,14],[6,12],[6,11],[6,10],[6,9],[6,8]];
 function sdCount(g,N,BR,BC,lim){const i=g.indexOf(0);if(i<0)return 1;const r=Math.floor(i/N),c=i%N;let cnt=0;
   for(let v=1;v<=N;v++){let ok=true;for(let k=0;k<N&&ok;k++)if(g[r*N+k]===v||g[k*N+c]===v)ok=false;const br=r-r%BR,bc=c-c%BC;for(let a=0;a<BR&&ok;a++)for(let b=0;b<BC;b++)if(g[(br+a)*N+bc+b]===v){ok=false;break}
     if(ok){g[i]=v;cnt+=sdCount(g,N,BR,BC,lim-cnt);g[i]=0;if(cnt>=lim)return cnt}}return cnt}
@@ -628,18 +654,21 @@ function sdMake(N,keep){const BR=2,BC=N===6?3:2;let best=null;
   return {N,BR,BC,sol:best.sol,puz:best.puz}}
 let sd=null;
 function sdStart(n){const [N,keep]=SDL[n-1];const m=sdMake(N,keep);sd=Object.assign(m,{n,cur:m.puz.slice(),sel:-1,set:SDS[n-1],miss:0,done:false,noCheck:n>=13});sdDraw()}
-function sdDraw(){const {N,BR,BC}=sd,e=sd.set;const fs=N===6?'clamp(17px,5.6vw,44px)':'clamp(30px,11vw,66px)';
+function sdDraw(){const {N,BR,BC}=sd,e=sd.set;
   let boxes='';for(let br=0;br<N/BR;br++)for(let bc=0;bc<N/BC;bc++){let cells='';for(let a=0;a<BR;a++)for(let b=0;b<BC;b++){const i=(br*BR+a)*N+bc*BC+b,v=sd.cur[i];
-    cells+=`<div class="c ${sd.puz[i]?'g':''} ${sd.sel===i?'s':''}" data-i="${i}" style="font-size:${fs}">${v?e[v-1]:''}</div>`}
+    cells+=`<div class="c ${sd.puz[i]?'g':''} ${sd.sel===i?'s':''}" data-i="${i}">${v?SDK[e[v-1]]:''}</div>`}
     boxes+=`<div class="box" style="grid-template-columns:repeat(${BC},minmax(0,1fr))">${cells}</div>`}
-  const w=$('#sdWrap');
-  w.innerHTML=topbar('sudoku',sd.n,`✖ ${sd.miss}`)+`<p class="how" style="margin:8px 0">${SDN[sd.n-1]} · ${N}×${N}${sd.noCheck?' · no hints: Check works when the grid is full':''}</p>
-  <div class="sd" style="grid-template-columns:repeat(${N/BC},minmax(0,1fr));width:min(100%,${N===6?640:560}px)">${boxes}</div>
-  <div class="pal">${e.map((x,k)=>`<button data-v="${k+1}">${x}</button>`).join('')}<button class="er" data-v="0">Clear</button></div>
+  const w=$('#sdWrap');const lg=document.querySelector('header .logo');const empty=sd.puz.filter(x=>!x).length;
+  w.innerHTML=topbar('sudoku',sd.n,`✖ ${sd.miss}`)+`<div class="sdbook" style="width:min(100%,${N===6?620:540}px)">
+  <div class="sdbar">${lg?`<img src="${lg.src}" alt="Kidnova">`:'<b>KIDNOVA</b>'}<span>Level ${sd.n}</span></div>
+  <p class="how sdhow">Tap an empty box, then tap a picture below. Each picture once in every row, column and box!${sd.noCheck?' <b>No hints: Check works when the grid is full.</b>':''}</p>
+  <div class="sd" style="grid-template-columns:repeat(${N/BC},minmax(0,1fr))">${boxes}</div>
+  <div class="pal pal${N}">${e.map((x,k)=>`<button data-v="${k+1}" aria-label="${x}">${SDK[x]}</button>`).join('')}</div>
+  <div class="sdfoot"><span>${empty} pictures to place · ${N}×${N}</span><button class="er" data-v="0">Clear box</button></div></div>
   <div class="msg" id="sdm"></div><div class="row">${sd.noCheck?'':'<button class="btn green" id="sdok">Check</button>'}<button class="btn blue" id="sdn">Restart level</button></div>`;
   w.querySelector('[data-back]').onclick=()=>renderMap('sudoku');
   w.querySelectorAll('.c').forEach(c=>c.onclick=()=>{const i=+c.dataset.i;if(sd.puz[i]||sd.done)return;sd.sel=i;sdDraw()});
-  w.querySelectorAll('.pal button').forEach(b=>b.onclick=()=>{if(sd.sel<0||sd.done)return;sd.cur[sd.sel]=+b.dataset.v;const i=sd.sel,T=N*N;
+  w.querySelectorAll('.pal button,.sdfoot .er').forEach(b=>b.onclick=()=>{if(sd.sel<0||sd.done)return;sd.cur[sd.sel]=+b.dataset.v;const i=sd.sel,T=N*N;
     if(sd.cur.every(Boolean))sd.sel=-1;else for(let k=1;k<=T;k++){const j=(i+k)%T;if(!sd.cur[j]){sd.sel=j;break}}sdDraw();if(sd.cur.every(Boolean))sdCheck()});
   $('#sdn').onclick=()=>sdStart(sd.n);if($('#sdok'))$('#sdok').onclick=sdCheck}
 function sdCheck(){const m=$('#sdm');const wrong=sd.cur.map((v,i)=>v&&v!==sd.sol[i]?i:-1).filter(i=>i>=0);
