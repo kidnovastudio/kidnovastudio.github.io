@@ -192,6 +192,19 @@ ul{margin:0 0 22px 20px;line-height:1.8;font-size:16px}
 .kind{display:block;font-size:13px;font-weight:700;color:#8a93ad;margin-top:12px}
 .free{display:inline-block;margin-top:16px;font-family:'Fredoka',sans-serif;font-weight:600;font-size:16px;color:var(--green);text-decoration:none;border-bottom:2px dashed var(--green)}
 .faq{max-width:1100px;margin:0 auto 50px;padding:0 32px}
+.play{display:flex;align-items:center;gap:14px;margin-top:20px;background:linear-gradient(135deg,#1E6FE8,#0B4BC9);border-radius:20px;padding:14px 16px;color:#fff;box-shadow:0 5px 0 #08399a}
+.play .pi{font-size:30px;line-height:1;flex:none}
+.play .pt{flex:1;font-weight:700;font-size:15px;line-height:1.35}
+.play .pt b{display:block;font-family:'Fredoka',sans-serif;font-weight:600;font-size:18px}
+.play .pt small{display:block;font-size:13px;color:#FFE41F;margin-top:2px}
+.play a{flex:none;font-family:'Fredoka',sans-serif;font-weight:700;font-size:16px;background:#FFE41F;color:#0B4BC9;text-decoration:none;padding:10px 20px;border-radius:999px;box-shadow:0 4px 0 #c9b200}
+.play a:hover{transform:translateY(2px);box-shadow:0 2px 0 #c9b200}
+@media(max-width:520px){.play{flex-wrap:wrap}.play a{width:100%;text-align:center}}
+.info{max-width:1100px;margin:0 auto 40px;padding:0 32px}
+.info h2{font-family:'Fredoka',sans-serif;font-size:26px;color:var(--bd);margin:26px 0 10px}
+.info p,.info li{font-size:16px;line-height:1.65}
+.info ul,.info ol{padding-left:22px;margin-top:6px}
+.info li{margin-bottom:6px}
 .faq h2{font-family:'Fredoka',sans-serif;font-size:26px;color:var(--bd);margin-bottom:16px}
 .faq details{background:#fff;border-radius:18px;padding:16px 22px;margin-bottom:12px;box-shadow:0 6px 14px rgba(29,43,83,.08)}
 .faq summary{font-family:'Fredoka',sans-serif;font-weight:600;font-size:18px;cursor:pointer;color:var(--ink)}
@@ -249,6 +262,7 @@ footer a{color:#fff}
     window.goatcounter.count({ path: 'buy-' + store + '-' + slug, title: 'Buy Now: ' + name.trim() + ' (' + store + ')', event: true });
   });
 </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MM505PPSCE"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-MM505PPSCE");</script>
 <script data-goatcounter="https://kidnova.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
