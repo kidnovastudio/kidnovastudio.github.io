@@ -6,13 +6,22 @@
     page   : the product's own page on this site (folder name + "/")
     note   : one short line under the name
     price  : price shown on the card, e.g. "$3.99"
-    type   : "digital"  (Etsy printable)   or   "printed"  (Amazon KDP paperback)
+    type   : "digital"  (Etsy printable)   or   "printed"  (Amazon KDP paperback)   or   "game"  (online game on Gumroad)
     image  : link to the product photo
     link   : link to the product page on Etsy or Amazon
   Don't forget the comma between blocks.
 */
 
 const PRODUCTS = [
+  {
+    title: "Kidnova Premium Games – Color by Math & Picture Sudoku",
+    page: "games/#color",
+    note: "30 levels of math coloring and picture sudoku, ages 4–9",
+    type: "game",
+    image: "images/premium-games-card.jpg",
+    price: "$3",
+    link: "https://kidnova.gumroad.com/l/premium-games"
+  },
   {
     title: "Car Play Mat Printable – Road Number Matching Game",
     page: "car-play-mat-printable/",

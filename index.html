@@ -294,6 +294,42 @@
   .buy.soon:hover{transform:none;box-shadow:0 5px 0 #a3aac4}
   .price{font-family:'Fredoka',sans-serif;font-weight:700;font-size:26px;color:var(--blue-dark);margin-bottom:14px}
 
+
+  /* ---------- online games ---------- */
+  .games-band{
+    max-width:1100px;margin:0 auto 54px;
+    background:linear-gradient(135deg,#1E6FE8 0%,#0B4BC9 100%);
+    border-radius:32px;padding:30px 34px 34px;color:#fff;
+    box-shadow:0 12px 0 #08399a, 0 18px 30px rgba(29,43,83,.18);
+    display:grid;grid-template-columns:200px 1fr;gap:26px;align-items:center;
+  }
+  .games-band .gb-kids{display:flex;justify-content:center;align-items:flex-end}
+  .games-band .gb-kids img{height:190px;filter:drop-shadow(0 8px 10px rgba(0,0,0,.25));animation:bob 4s ease-in-out infinite}
+  .games-band .gb-kids img + img{margin-left:-38px;animation-delay:-2s}
+  .games-band h2{color:#fff;text-align:left;font-size:36px;margin-bottom:6px;text-shadow:0 3px 0 rgba(0,0,0,.18)}
+  .games-band .gb-sub{font-size:17px;font-weight:700;opacity:.95;margin-bottom:18px}
+  .gtiles{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:20px}
+  .gtile{
+    position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+    background:#fff;color:var(--ink);text-decoration:none;border-radius:20px;padding:16px 8px 12px;
+    font-family:'Fredoka',sans-serif;font-weight:600;font-size:15px;text-align:center;line-height:1.15;
+    box-shadow:0 5px 0 rgba(0,0,0,.18);transition:transform .15s, box-shadow .15s;
+  }
+  .gtile:hover{transform:translateY(-3px);box-shadow:0 8px 0 rgba(0,0,0,.18)}
+  .gtile .gi{font-size:34px;line-height:1}
+  .gtile .gbadge{
+    position:absolute;top:-9px;right:-6px;font-size:11px;font-weight:700;color:#fff;
+    padding:3px 9px;border-radius:999px;box-shadow:0 2px 0 rgba(0,0,0,.2);letter-spacing:.3px;
+  }
+  .gbadge.free{background:var(--green)}
+  .gbadge.premium{background:#8B3FD9}
+  .gb-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+  .gb-actions .cta{font-size:19px;padding:12px 30px}
+  .gb-actions .gb-note{font-weight:700;font-size:15px}
+  .gb-actions .gb-note a{color:var(--yellow)}
+  .filter[data-f="game"].active{background:#8B3FD9;border-color:#8B3FD9;box-shadow:0 4px 0 #6a2aab}
+  .tag.game{background:#8B3FD9}
+
   footer{
     background:var(--blue-dark);color:#fff;text-align:center;
     padding:28px 20px;font-weight:600;font-size:15px;
@@ -308,7 +344,17 @@
     .kid img{height:320px}
     .bubble{font-size:22px}
   }
+  @media (max-width:980px){
+    .games-band{grid-template-columns:1fr;text-align:center}
+    .games-band h2{text-align:center}
+    .gtiles{grid-template-columns:repeat(3,1fr)}
+    .gb-actions{justify-content:center}
+  }
   @media (max-width:560px){
+    .games-band{padding:24px 16px 26px;border-radius:24px}
+    .games-band .gb-kids img{height:130px}
+    .games-band h2{font-size:28px}
+    .gtiles{grid-template-columns:repeat(2,1fr)}
     .grid{grid-template-columns:1fr}
     header{padding:16px 18px 0}
     header img{height:70px}
@@ -344,6 +390,7 @@
       <p>We're here to help your kids learn, play and grow with fun printables and activity books: chore charts, reward charts, savings trackers, puzzles and more!</p>
       <a class="cta" href="#products">See our products</a><br>
       <a class="cta cta-sm" href="free-winter-color-by-number/">Free Printable</a>
+      <a class="cta cta-sm" href="games/">🎮 Play Free Games</a>
     </div>
 
     <div class="kid zein">
@@ -357,12 +404,36 @@
   </svg>
 
   <section class="products" id="products">
+    <div class="games-band" id="games">
+      <div class="gb-kids"><img src="images/nova.png" alt="Nova" loading="lazy"><img src="images/zein.png" alt="Zein" loading="lazy"></div>
+      <div>
+        <h2>Play &amp; Learn Online with Nova &amp; Zein</h2>
+        <p class="gb-sub">Thinking games about saving, money, math and logic for ages 4–9. Play right in the browser on any phone, tablet or computer.</p>
+        <div class="gtiles">
+          <a class="gtile" href="games/#save"><span class="gbadge free">FREE</span><span class="gi">💰</span>Treasure Saver</a>
+          <a class="gtile" href="games/#chore"><span class="gbadge free">FREE</span><span class="gi">🧹</span>Chore Cash</a>
+          <a class="gtile" href="games/#ttt"><span class="gbadge free">FREE</span><span class="gi">❌⭕</span>Beat Nova</a>
+          <a class="gtile" href="games/#color"><span class="gbadge premium">PREMIUM</span><span class="gi">🖍️</span>Color by Math</a>
+          <a class="gtile" href="games/#sudoku"><span class="gbadge premium">PREMIUM</span><span class="gi">🧩</span>Picture Sudoku</a>
+        </div>
+        <div class="gb-actions">
+          <a class="cta" href="games/">Play Free Games</a>
+          <span class="gb-note">Level 1 of the premium games is free to try · <a href="https://kidnova.gumroad.com/l/premium-games" target="_blank" rel="noopener">Unlock all 30 levels for $3</a></span>
+        </div>
+      </div>
+    </div>
     <div class="filters">
       <button class="filter active" data-f="all">All</button>
       <button class="filter" data-f="digital">Digital Downloads</button>
       <button class="filter" data-f="printed">Printed Books</button>
+      <button class="filter" data-f="game">Online Games</button>
     </div>
     <div class="grid" id="grid">
+      <article class="card game">
+        <a class="thumb" href="games/#color"><img src="images/premium-games-card.jpg" alt="Kidnova Premium Games – Color by Math &amp; Picture Sudoku" loading="lazy"><span class="tag game">Online Game</span></a>
+        <div class="info"><h3><a href="games/#color">Kidnova Premium Games – Color by Math &amp; Picture Sudoku</a></h3><p class="note">30 levels of math coloring and picture sudoku, ages 4–9</p><p class="kind">Play in the browser, no download</p>
+          <div class="buy-wrap"><p class="price">$3</p><a class="buy" href="https://kidnova.gumroad.com/l/premium-games" target="_blank" rel="noopener">Buy Now</a></div></div>
+      </article>
       <article class="card digital">
         <a class="thumb" href="car-play-mat-printable/"><img src="https://i.etsystatic.com/47663208/r/il/b4a536/8710331936/il_794xN.8710331936_5zpl.jpg" alt="Car Play Mat Printable – Road Number Matching Game" loading="lazy"><span class="tag digital">Digital Download</span></a>
         <div class="info"><h3><a href="car-play-mat-printable/">Car Play Mat Printable – Road Number Matching Game</a></h3><p class="note">Parking-lot counting fun for little drivers</p><p class="kind">Instant download, print at home</p>
@@ -419,7 +490,7 @@
   <footer>
     <img src="images/logo.png" alt="Kidnova"><br>
     © <span id="year"></span> Kidnova · Fun printables &amp; activity books for kids<br>
-    <a href="guides/" style="color:#fff;font-weight:700">Parent guides</a> · <a href="free-winter-color-by-number/" style="color:#fff;font-weight:700">Free printable</a>
+    <a href="guides/" style="color:#fff;font-weight:700">Parent guides</a> · <a href="free-winter-color-by-number/" style="color:#fff;font-weight:700">Free printable</a> · <a href="games/" style="color:#fff;font-weight:700">Free games</a>
   </footer>
 
 <script src="products.js"></script>
@@ -427,7 +498,8 @@
   const grid = document.getElementById('grid');
   const TYPES = {
     digital: { tag: 'Digital Download', kind: 'Instant download, print at home' },
-    printed: { tag: 'Printed Book',     kind: 'Paperback, shipped by Amazon' }
+    printed: { tag: 'Printed Book',     kind: 'Paperback, shipped by Amazon' },
+    game:    { tag: 'Online Game',      kind: 'Play in the browser, no download' }
   };
   grid.innerHTML = '';
   PRODUCTS.forEach(p => {
@@ -469,7 +541,7 @@
     if (!a || !window.goatcounter || !window.goatcounter.count) return;
     var card = a.closest('article');
     var name = card ? card.querySelector('h3').textContent : (document.querySelector('h1') || {}).textContent || document.title;
-    var store = a.href.indexOf('amazon.') > -1 ? 'amazon' : (a.href.indexOf('etsy.') > -1 ? 'etsy' : 'other');
+    var store = a.href.indexOf('amazon.') > -1 ? 'amazon' : (a.href.indexOf('etsy.') > -1 ? 'etsy' : (a.href.indexOf('gumroad.') > -1 ? 'gumroad' : 'other'));
     var slug = name.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
     window.goatcounter.count({ path: 'buy-' + store + '-' + slug, title: 'Buy Now: ' + name.trim() + ' (' + store + ')', event: true });
   });
