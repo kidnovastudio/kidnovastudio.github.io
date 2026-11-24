@@ -16,11 +16,20 @@ const PRODUCTS = [
   {
     title: "Kidnova Premium Games – Color by Math & Picture Sudoku",
     page: "games/#color",
-    note: "30 levels of math coloring and picture sudoku, ages 4–9",
+    note: "45 levels of math coloring, picture sudoku and pixel math, ages 4–9",
     type: "game",
     image: "images/premium-games-card.jpg",
     price: "$3",
     link: "https://kidnova.gumroad.com/l/premium-games"
+  },
+  {
+    title: "Mystery Pixel Math – Color by Number Bundle (3 Levels)",
+    page: "mystery-pixel-math/",
+    note: "120 mystery pixel pictures: numbers, + −, × ÷",
+    type: "digital",
+    image: "https://i.etsystatic.com/47663208/r/il/15db3f/8966368885/il_794xN.8966368885_g0k6.jpg",
+    price: "$10.99",
+    link: "https://www.etsy.com/listing/4624568311/mystery-pixel-art-color-by-number-bundle"
   },
   {
     title: "Car Play Mat Printable – Road Number Matching Game",
