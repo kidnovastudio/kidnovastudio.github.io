@@ -171,6 +171,12 @@ footer a{color:var(--bd)}
 .pw-msg{font-size:13px;font-weight:700;margin-top:8px;min-height:1em;text-align:center}.pw-msg.err{color:#d93a3a}.pw-msg.ok{color:#169c5f}
 .pw-key .pw-note{text-align:center}
 .toast{text-align:center;background:#fff4d6;border-radius:12px;padding:8px;font-weight:600;margin-bottom:10px}
+.pxhint{font-weight:700;color:#55607a;margin:8px 0;text-align:center}.pxpal{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:10px 0}
+.pxsw{display:flex;align-items:center;gap:6px;background:#fff;border:3px solid #dfe5f2;border-radius:14px;padding:6px 12px;font-size:20px;font-weight:800;color:#1d2b53;cursor:pointer}
+.pxsw i{width:30px;height:30px;border-radius:8px;border:2px solid #1d2b53;display:block}.pxsw.on{border-color:#1d2b53;transform:scale(1.1);box-shadow:0 6px 14px rgba(29,43,83,.25)}.pxsw.fin{opacity:.35}
+.pxgrid{display:grid;max-width:600px;margin:0 auto;border:3px solid #1d2b53;background:#1d2b53;gap:1px;touch-action:none;user-select:none;-webkit-user-select:none}
+.pxgrid.fin{gap:0}.pxc{aspect-ratio:1;background:#fff;border:0;padding:0;font:700 clamp(8px,2.5vw,15px) Nunito,sans-serif;color:#1d2b53;cursor:pointer;min-width:0;overflow:hidden}
+.pxc.sm{font-size:clamp(6.5px,1.9vw,12px)}.pxc.ok{cursor:default}.pxname{text-align:center;font:700 24px Fredoka,sans-serif;color:#1d2b53;margin:12px 0}
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MM505PPSCE"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-MM505PPSCE");</script>
 <script data-goatcounter="https://kidnova.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
@@ -188,6 +194,7 @@ footer a{color:var(--bd)}
   <button class="pick" data-g="ttt"><span class="tag free">FREE</span><span class="em">❌⭕</span><b>Beat Nova</b></button>
   <button class="pick" data-g="color"><span class="tag pro">PREMIUM</span><span class="em">🖍️</span><b>Color by Math</b></button>
   <button class="pick" data-g="sudoku"><span class="tag pro">PREMIUM</span><span class="em">🧩</span><b>Picture Sudoku</b></button>
+  <button class="pick" data-g="pixel"><span class="tag pro">PREMIUM</span><span class="em">🟦</span><b>Pixel Math</b></button>
 </nav>
 
 <main>
@@ -238,6 +245,13 @@ footer a{color:var(--bd)}
   <p class="how">15 levels, from easy 4×4 to tricky 6×6. Every row, column and box has each picture once.</p>
   <div id="sdWrap"></div>
   <a class="cta big" href="https://kidnovastudio.github.io/picture-sudoku-for-kids/" target="_blank" rel="noopener"><img id="ctaSudo" class="tall" alt="Picture Sudoku book cover"><span><small>33 more puzzles to cut and paste</small><b>Picture Sudoku for Kids Ages 4–6 (Book) ›</b></span></a>
+</section>
+
+<section class="game" id="g-pixel">
+  <h2>Pixel Math</h2>
+  <p class="how">15 levels, a mystery picture in every one. Solve the squares, color them in and see what appears!</p>
+  <div id="pxWrap"></div>
+  <a class="cta big" href="https://kidnovastudio.github.io/mystery-pixel-math/" target="_blank" rel="noopener"><img class="tall" src="https://i.etsystatic.com/47663208/r/il/acee21/8918575880/il_794xN.8918575880_9471.jpg" alt="Mystery Pixel Math cover"><span><small>120 more mystery pictures to print and color</small><b>Mystery Pixel Math: Printable Packs & Books ›</b></span></a>
 </section>
 </main>
 <footer>Made by <a href="https://kidnovastudio.github.io/" target="_blank" rel="noopener">Kidnova</a> · Fun printables & activity books for kids</footer>
@@ -488,7 +502,7 @@ const PICS=[
 /* ================= PREMIUM GAMES: levels, progress, paywall ================= */
 const TIERS=[['Easy','#22b573'],['Medium','#1e6fe8'],['Hard','#ff9f1c'],['Very Hard','#f05050'],['Extra Hard','#5834be']];
 const tierOf=n=>TIERS[Math.floor((n-1)/3)];
-let prog={color:{},sudoku:{},free:{color:0,sudoku:0}};
+let prog={color:{},sudoku:{},pixel:{},free:{color:0,sudoku:0,pixel:0}};
 try{const s=JSON.parse(localStorage.getItem('kidnova_prog_v1')||'null');if(s&&s.color)prog=Object.assign(prog,s)}catch(e){}
 function saveProg(){try{localStorage.setItem('kidnova_prog_v1',JSON.stringify(prog))}catch(e){}}
 const isOpen=(g,n)=>PREMIUM?(n===1||!!prog[g][n-1]):(n===1&&!prog.free[g]);
@@ -501,8 +515,8 @@ async function gumVerify(key,inc){
   let j={};try{j=await r.json()}catch(e){}j.status=r.status;return j;
 }
 const badPurchase=p=>!!(p&&(p.refunded||p.chargebacked||p.disputed));
-function setTags(){document.querySelectorAll('.pick[data-g="color"] .tag,.pick[data-g="sudoku"] .tag').forEach(t=>{t.className='tag '+(PREMIUM?'free':'pro');t.textContent=PREMIUM?'UNLOCKED':'PREMIUM'})}
-function applyUnlock(on){PREMIUM=on;setTags();renderMap('color');renderMap('sudoku')}
+function setTags(){document.querySelectorAll('.pick[data-g="color"] .tag,.pick[data-g="sudoku"] .tag,.pick[data-g="pixel"] .tag').forEach(t=>{t.className='tag '+(PREMIUM?'free':'pro');t.textContent=PREMIUM?'UNLOCKED':'PREMIUM'})}
+function applyUnlock(on){PREMIUM=on;setTags();renderMap('color');renderMap('sudoku');if(typeof PXD!=='undefined')renderMap('pixel')}
 (function(){ // device already unlocked? check quietly that the key is still valid
   let s=null;try{s=JSON.parse(localStorage.getItem(KEY_STORE)||'null')}catch(e){}
   if(!s||!s.k)return;
@@ -517,8 +531,8 @@ function paywall(reason,focusKey){
   o.innerHTML=`<div class="pw-box"><button class="pw-x" aria-label="Close">✕</button>
    <div class="chars"><img src="${IMG_NOVA}" alt="Nova"><img src="${IMG_ZEIN}" alt="Zein"></div>
    <h3>${reason||'Unlock Kidnova Premium'}</h3>
-   <ul><li>🖍️ 15 levels of <b>Color by Math</b>, a new picture every level</li><li>🧩 15 levels of <b>Picture Sudoku</b>, from 4×4 to 6×6</li><li>⭐ Stars and progress saved on each device</li><li>🔓 Pay once, play anytime on up to ${MAX_DEVICES} devices</li></ul>
-   <a class="btn green pw-buy" href="${BUY_URL}" target="_blank" rel="noopener" onclick="try{gtag('event','unlock_click')}catch(e){}">Unlock both games – ${PRICE}</a>
+   <ul><li>🖍️ 15 levels of <b>Color by Math</b>, a new picture every level</li><li>🧩 15 levels of <b>Picture Sudoku</b>, from 4×4 to 6×6</li><li>🟦 15 levels of <b>Pixel Math</b>, a mystery picture every level</li><li>⭐ Stars and progress saved on each device</li><li>🔓 Pay once, play anytime on up to ${MAX_DEVICES} devices</li></ul>
+   <a class="btn green pw-buy" href="${BUY_URL}" target="_blank" rel="noopener" onclick="try{gtag('event','unlock_click')}catch(e){}">Unlock all 3 games – ${PRICE}</a>
    <div class="pw-key"><p class="pw-kh">🔑 Already bought? Paste your license key</p>
     <div class="pw-kr"><input class="pw-in" placeholder="Paste your key here" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="License key"><button class="btn pw-go">Unlock</button></div>
     <p class="pw-msg" role="status"></p>
@@ -541,7 +555,7 @@ function paywall(reason,focusKey){
       await gumVerify(key,true); // count this device
       try{localStorage.setItem(KEY_STORE,JSON.stringify({k:key,t:Date.now()}))}catch(e){}
       try{gtag('event','unlock_key')}catch(e){}
-      msg('Unlocked! 🎉 Enjoy all 30 levels.','ok');
+      msg('Unlocked! 🎉 Enjoy all 45 levels.','ok');
       setTimeout(()=>{close();applyUnlock(true)},1200);
     }catch(e){msg('Could not connect. Check your internet and try again.','err')}
     finally{go.disabled=false}
@@ -549,18 +563,18 @@ function paywall(reason,focusKey){
 }
 
 function renderMap(g){
-  const wrap=$(g==='color'?'#cbWrap':'#sdWrap');const done=prog[g];
+  const wrap=$(g==='color'?'#cbWrap':g==='pixel'?'#pxWrap':'#sdWrap');const done=prog[g];
   let h='';
   if(!PREMIUM)h+=`<div class="free-banner"><span>${prog.free[g]?'You played your free level.':'🎁 Level 1 is free to try!'}</span><span class="fb-btns"><button class="btn green" data-pw>🔓 Unlock all 15 levels</button><button class="btn ghost" data-key>🔑 I have a key</button></span></div>`;
   TIERS.forEach((t,ti)=>{h+=`<div class="tier"><div class="tier-h" style="background:${t[1]}">${t[0]}</div><div class="tier-l">`;
     for(let k=1;k<=3;k++){const n=ti*3+k,open=isOpen(g,n),st=done[n];
-      h+=`<button class="lvb ${st?'done':open?'open':'lock'}" data-n="${n}" style="--c:${t[1]}"><span class="num">${open||st?n:'🔒'}</span><span class="st">${st?starsTxt(st):open?'Play':''}</span><span class="ic">${g==='color'?PICS[n-1].icon:sdIcon(n)}</span></button>`}
+      h+=`<button class="lvb ${st?'done':open?'open':'lock'}" data-n="${n}" style="--c:${t[1]}"><span class="num">${open||st?n:'🔒'}</span><span class="st">${st?starsTxt(st):open?'Play':''}</span><span class="ic">${g==='color'?PICS[n-1].icon:g==='pixel'?PXD[n-1].icon:sdIcon(n)}</span></button>`}
     h+='</div></div>'});
   wrap.innerHTML=h;
   wrap.querySelectorAll('[data-pw]').forEach(b=>b.onclick=()=>paywall());
   wrap.querySelectorAll('[data-key]').forEach(b=>b.onclick=()=>paywall('Enter your license key',true));
   wrap.querySelectorAll('.lvb').forEach(b=>b.onclick=()=>{const n=+b.dataset.n;
-    if(isOpen(g,n)||(PREMIUM&&prog[g][n]))return g==='color'?cbStart(n):sdStart(n);
+    if(isOpen(g,n)||(PREMIUM&&prog[g][n]))return g==='color'?cbStart(n):g==='pixel'?pxStart(n):sdStart(n);
     if(!PREMIUM)return paywall(prog.free[g]&&n===1?'You played your free level! 🎉':'Unlock all 15 levels');
     const m=document.createElement('div');m.className='toast';m.textContent='Finish level '+(n-1)+' first ⭐';wrap.prepend(m);setTimeout(()=>m.remove(),1800)});
 }
@@ -573,7 +587,7 @@ function finish(g,n,stars,wrap){
    <div class="row">${PREMIUM?(last?`<button class="btn" data-map>All levels</button>`:`<button class="btn green" data-next>Next level ›</button><button class="btn ghost" data-map>Levels</button>`):`<button class="btn green" data-pw>🔓 Unlock level 2 to 15</button><button class="btn ghost" data-map>Levels</button>`}</div>`;
   wrap.appendChild(box);box.scrollIntoView({behavior:'smooth',block:'center'});
   box.querySelector('[data-map]')&&(box.querySelector('[data-map]').onclick=()=>renderMap(g));
-  box.querySelector('[data-next]')&&(box.querySelector('[data-next]').onclick=()=>g==='color'?cbStart(next):sdStart(next));
+  box.querySelector('[data-next]')&&(box.querySelector('[data-next]').onclick=()=>g==='color'?cbStart(next):g==='pixel'?pxStart(next):sdStart(next));
   box.querySelector('[data-pw]')&&(box.querySelector('[data-pw]').onclick=()=>paywall());
   if(!PREMIUM)setTimeout(()=>paywall('Great job! Ready for level 2?'),1400);
 }
@@ -676,9 +690,54 @@ function sdCheck(){const m=$('#sdm');const wrong=sd.cur.map((v,i)=>v&&v!==sd.sol
   if(wrong.length){sd.miss++;$('#sdWrap .extra').textContent='✖ '+sd.miss;m.className='msg bad';m.textContent=`Look again: ${wrong.length} picture${wrong.length>1?'s are':' is'} in the wrong place.`;wrong.forEach(i=>document.querySelector(`#sdWrap .c[data-i="${i}"]`).classList.add('x'));shake(m)}
   else{m.className='msg';m.textContent='So far so good! Keep going.'}}
 
+const PXD=[{"name":"Big Heart","icon":"❤️","g":["SSSSSSSSSSSS","SSRRSSSSRRSS","SRRRRSSRRRRS","RRWRRRRRRRRR","RRWRRRRRRRRR","RRRRRRRRRRRR","SRRRRRRRRRRS","SSRRRRRRRRSS","SSSRRRRRRSSS","SSSSRRRRSSSS","SSSSSRRSSSSS","SSSSSSSSSSSS"],"p":{"S":"#addff7","R":"#e1282d","W":"#ffffff"}},{"name":"Sunny Sun","icon":"☀️","g":["SSOSSSSSSOSS","SSSOSSSSOSSS","SSSSYYYYSSSS","OSSYYYYYYSSO","SOYYKYYKYYOS","SSYYYYYYYYSS","SSYYKYYKYYSS","SOYYYKKYYYOS","OSSYYYYYYSSO","SSSSYYYYSSSS","SSSOSSSSOSSS","SSOSSSSSSOSS"],"p":{"S":"#addff7","O":"#ff8c1e","Y":"#ffd728","K":"#1e1e1e"}},{"name":"Little Duck","icon":"🦆","g":["SSSSSSSSSSSS","SSSSYYYSSSSS","SSSYYYYYSSSS","SSSYKYYYOOSS","SSSYYYYYOOSS","SSSSYYYYSSSS","SYYYYYYYYYYS","SYYYYYYYYYYS","SSYYYYYYYYSS","BBBBBBBBBBBB","BBBBBBBBBBBB","BBBBBBBBBBBB"],"p":{"S":"#addff7","Y":"#ffd728","K":"#1e1e1e","O":"#ff8c1e","B":"#2962c4"}},{"name":"Goldfish","icon":"🐠","g":["SSSSSSSSSSSS","SSSSSSSSSSSS","SSSOOOOOSSSS","SSOOOOOOOSOO","SOKOOYOOOOOO","SOOOOYOOOOOO","SSOOOOOOOSOO","SSSOOOOOSSSS","SSSSSSSSSSSS","SSSSSSSSSSSS","TTTTTTTTTTTT","TTTTTTTTTTTT"],"p":{"S":"#addff7","O":"#ff8c1e","K":"#1e1e1e","Y":"#ffd728","T":"#f0d7a0"}},{"name":"Baby Chick","icon":"🐥","g":["GGGGGGGGGGGG","GGGGYYYYGGGG","GGGYYYYYYGGG","GGGYKYYKYGGG","GGGYYOOYYGGG","GGYYYYYYYYGG","GYYYYYYYYYYG","GYYYYYYYYYYG","GGYYYYYYYYGG","GGGYYYYYYGGG","GGGGOGGOGGGG","GGGGGGGGGGGG"],"p":{"G":"#b4e696","Y":"#ffd728","K":"#1e1e1e","O":"#ff8c1e"}},{"name":"Piggy","icon":"🐷","g":["GGGGGGGGGGGG","GLLGGGGGGLLG","GLLLLLLLLLLG","GLLLLLLLLLLG","GLLKLLLLKLLG","GLLLLLLLLLLG","GLLLPPPPLLLG","GLLPKPPKPLLG","GLLLPPPPLLLG","GLLLLLLLLLLG","GGLLLLLLLLGG","GGGGGGGGGGGG"],"p":{"G":"#b4e696","L":"#ffd2e1","P":"#f78fb3","K":"#1e1e1e"}},{"name":"Teddy Bear","icon":"🧸","g":["YYYYYYYYYYYY","YBBYYYYYYBBY","YBTBBBBBBTBY","YBBBBBBBBBBY","YBBKBBBBKBBY","YBBBBBBBBBBY","YBBBTTTTBBBY","YBBTTKKTTBBY","YBBTTTTTTBBY","YBBBTTTTBBBY","YYBBBBBBBBYY","YYYYYYYYYYYY"],"p":{"Y":"#ffd728","B":"#8c552d","T":"#e6be8c","K":"#1e1e1e"}},{"name":"Sailboat","icon":"⛵","g":["SSSSSSSSSSSS","SSSSSRSSSSSS","SSSSSRWSSSSS","SSSSSRWWSSSS","SSSSSRWWWSSS","SSSSSRWWWWSS","SSSSSRWWWWWS","SSSSSRSSSSSS","RRRRRRRRRRRR","SRRRRRRRRRRS","BBBRRRRRRBBB","BBBBBBBBBBBB"],"p":{"S":"#addff7","R":"#e1282d","W":"#ffffff","B":"#2962c4"}},{"name":"Butterfly","icon":"🦋","g":["GGGGGGGGGGGG","GGGKGGGGKGGG","GOOGGKKGGOOG","OOOOGKKGOOOO","OYYOOKKOOYYO","OYYOOKKOOYYO","OOOOOKKOOOOO","GOOOOKKOOOOG","GOOYOKKOYOOG","GOOOOKKOOOOG","GGOOGKKGOOGG","GGGGGGGGGGGG"],"p":{"G":"#b4e696","K":"#1e1e1e","O":"#ff8c1e","Y":"#ffd728"}},{"name":"Lion","icon":"🦁","g":["SSSOOOOOOSSS","SOOOOOOOOOOS","OOOYYYYYYOOO","OOYYYYYYYYOO","OOYKYYYYKYOO","OOYYYYYYYYOO","OOYYYBBYYYOO","OOYYKYYKYYOO","OOOYYKKYYOOO","SOOOYYYYOOOS","SSOOOOOOOOSS","SSSSOOOOSSSS"],"p":{"S":"#addff7","O":"#ff8c1e","Y":"#ffd728","K":"#1e1e1e","B":"#8c552d"}},{"name":"Monkey","icon":"🐵","g":["GGGGGGGGGGGG","GGGBBBBBBGGG","GGBBBBBBBBGG","GBBTTTTTTBBG","TTBTKTTKTBTT","TTBTTTTTTBTT","GBTTTTTTTTBG","GBTTTTTTTTBG","GBTKTTTTKTBG","GGBTKKKKTBGG","GGGBBBBBBGGG","GGGGGGGGGGGG"],"p":{"G":"#46aa50","B":"#8c552d","T":"#e6be8c","K":"#1e1e1e"}},{"name":"School Bus","icon":"🚌","g":["GGGGGGGGGGGG","GGGGGGGGGGGG","YYYYYYYYYYGG","YLLYLLYLLYYG","YLLYLLYLLYLY","YYYYYYYYYYYY","YKKKKKKKKKKY","YYYYYYYYYYYY","YKKYYYYYYKKY","GKKGGGGGGKKG","AAAAAAAAAAAA","AAAAAAAAAAAA"],"p":{"G":"#b4e696","Y":"#ffd728","L":"#addff7","K":"#1e1e1e","A":"#969ea8"}},{"name":"Little Train","icon":"🚂","g":["SSSSSSSSSSSS","SSSSSSSSSSSS","SSSKKSSSSSSS","SSSKKSSRRRRS","SSSKKSSRYYRS","SRRRRRRRYYRS","RRRRRRRRRRRS","RRRRRRRRRRRS","RKKRRKKRRKKS","SKKSSKKSSKKS","AAAAAAAAAAAA","SSSSSSSSSSSS"],"p":{"S":"#addff7","K":"#1e1e1e","R":"#e1282d","Y":"#ffd728","A":"#969ea8"}},{"name":"Grapes","icon":"🍇","g":["CCCCCGCCCCCC","CCCCCGGGCCCC","CPPPPPPPPPPC","CPLPPLPPLPPC","CPPPPPPPPPPC","CCPPPPPPPPCC","CCPLPPLPPPCC","CCPPPPPPPPCC","CCCPPPPPPCCC","CCCPLPPLPCCC","CCCCPPPPCCCC","CCCCCPPCCCCC"],"p":{"C":"#fff5d2","G":"#46aa50","P":"#8c50c8","L":"#c8aaf0"}},{"name":"Snowflake","icon":"❄️","g":["NNNNNWNNNNNN","NNNWNWNWNNNN","NNNNWWWNNNNN","NWNNNWNNNWNN","NNWNNWNNWNNN","WWWWWLWWWWWN","NNWNNWNNWNNN","NWNNNWNNNWNN","NNNNWWWNNNNN","NNNWNWNWNNNN","NNNNNWNNNNNN","NNNNNNNNNNNN"],"p":{"N":"#19204a","W":"#ffffff","L":"#addff7"}}];
+
+/* ---------- Pixel Math (mystery pixel pictures) ---------- */
+const PXHINT=['Match the numbers','Match the numbers','Match the numbers','Addition to 10','Addition to 20','Subtraction to 10','Subtraction to 20','Add and subtract','Times 2, 5 and 10','Times tables to 5','Times tables to 10','Division','Multiply and divide','Times tables to 12','Big mix: + − × ÷'];
+const PXK=[[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9],[4,5,6,7,8,9,10],[11,12,13,14,15,16,17,18,19,20],[1,2,3,4,5,6,7,8],[3,4,5,6,7,8,9,11,12],[5,6,7,8,9,11,12,13,14,15],[10,20,30,40,50],[12,15,16,20,24,30,40],[24,36,42,48,56,63,72],[2,3,4,5,6,7,8,9],[6,8,9,12,18,24,36],[24,36,48,60,72,84,96],[24,36,42,48,54,56,63,72]];
+function pxProb(lv,n){const r=(a,b)=>a+R(b-a+1);let a,b,c,o=[];
+  if(lv<=3)return ''+n;
+  if(lv===4||lv===5){a=r(1,n-1);return a+'+'+(n-a)}
+  if(lv===6){b=r(1,10-n);return (n+b)+'−'+b}
+  if(lv===7){b=r(1,20-n);return (n+b)+'−'+b}
+  if(lv===8){if(R(2)){a=r(1,n-1);return a+'+'+(n-a)}b=r(1,20-n);return (n+b)+'−'+b}
+  if(lv>=9&&lv<=11||lv===13){for(a=2;a<=10;a++)if(n%a===0&&n/a>=2&&n/a<=10)o.push(a+'×'+n/a);
+    if(lv===13)for(b=2;b<=10;b++)if(n*b<=90)o.push(n*b+'÷'+b);return o[R(o.length)]}
+  if(lv===12){b=r(2,10);return n*b+'÷'+b}
+  if(lv===14){for(a=2;a<=12;a++)if(n%a===0&&n/a>=2&&n/a<=12)o.push(a+'×'+n/a);for(b=2;b<=4;b++)if(n*b<=99)o.push(n*b+'÷'+b);return o[R(o.length)]}
+  for(a=2;a<=10;a++)if(n%a===0&&n/a>=2&&n/a<=10)o.push(a+'×'+n/a);
+  a=r(11,n-11);o.push(a+'+'+(n-a));b=r(11,99-n);o.push((n+b)+'−'+b);o.push(n*2+'÷2');return o[R(o.length)];
+}
+const pxEval=s=>Function('return '+s.replace(/×/g,'*').replace(/÷/g,'/').replace(/−/g,'-'))();
+let px=null;
+function pxStart(n){const D=PXD[n-1],wrap=$('#pxWrap'),chars=Object.keys(D.p);
+  const nums=shuffle(PXK[n-1].slice()).slice(0,chars.length),key={};chars.forEach((c,i)=>key[c]=nums[i]);
+  const N=D.g.length;px={n,D,key,sel:null,miss:0,left:N*N,done:false};
+  let h=topbar('pixel',n,'<span id="pxInfo"></span>')+`<p class="pxhint">${PXHINT[n-1]} · pick a color, then tap or drag over every square with that answer</p><div class="pxpal">`;
+  chars.slice().sort((x,y)=>key[x]-key[y]).forEach(c=>{h+=`<button class="pxsw" data-c="${c}"><i style="background:${D.p[c]}"></i><b>${key[c]}</b></button>`});
+  h+=`</div><div class="pxgrid" style="grid-template-columns:repeat(${N},1fr)">`;
+  for(let y=0;y<N;y++)for(let x=0;x<N;x++){const c=D.g[y][x];let p=pxProb(n,key[c]);if(Math.abs(pxEval(p)-key[c])>1e-9)p=''+key[c];h+=`<button class="pxc${p.length>4?' sm':''}" data-c="${c}">${p}</button>`}
+  h+='</div>';wrap.innerHTML=h;
+  wrap.querySelector('[data-back]').onclick=()=>renderMap('pixel');
+  const info=()=>{$('#pxInfo').textContent='Left: '+px.left+' · Oops: '+px.miss};info();
+  wrap.querySelectorAll('.pxsw').forEach(b=>b.onclick=()=>{px.sel=b.dataset.c;wrap.querySelectorAll('.pxsw').forEach(x=>x.classList.toggle('on',x===b))});
+  const grid=wrap.querySelector('.pxgrid');let down=false,lastBad=null;
+  const paint=(el,first)=>{if(!el||!el.classList||!el.classList.contains('pxc')||el.classList.contains('ok')||px.done)return;
+    if(!px.sel){if(first){const pal=wrap.querySelector('.pxpal');shake(pal)}return}
+    if(el.dataset.c===px.sel){el.classList.add('ok');el.style.background=D.p[px.sel];el.textContent='';px.left--;info();
+      if(wrap.querySelectorAll('.pxc[data-c="'+px.sel+'"]:not(.ok)').length===0){const sw=wrap.querySelector('.pxsw.on');if(sw){sw.classList.add('fin');sw.classList.remove('on')}px.sel=null}
+      if(px.left===0){px.done=true;grid.classList.add('fin');const st=px.miss<=3?3:px.miss<=8?2:1;
+        const t=document.createElement('p');t.className='pxname';t.textContent='You found: '+D.name+'! '+D.icon;grid.after(t);setTimeout(()=>finish('pixel',n,st,wrap),500)}}
+    else if(first||lastBad!==el){lastBad=el;px.miss++;info();shake(el)}};
+  grid.addEventListener('pointerdown',e=>{down=true;lastBad=null;paint(e.target,true);e.preventDefault()});
+  grid.addEventListener('pointermove',e=>{if(!down)return;paint(document.elementFromPoint(e.clientX,e.clientY),false)});
+  window.addEventListener('pointerup',()=>{down=false},{passive:true});
+}
+renderMap('pixel');
+
 /* boot */
 start.save();chRender();start.ttt();renderMap('color');renderMap('sudoku');
-const h=(location.hash||'').slice(1);show(['save','chore','ttt','color','sudoku'].includes(h)?h:'save');
+const h=(location.hash||'').slice(1);show(['save','chore','ttt','color','sudoku','pixel'].includes(h)?h:'save');
 </script>
 </body>
 </html>
