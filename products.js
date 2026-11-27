@@ -86,13 +86,13 @@ const PRODUCTS = [
     link: "https://www.etsy.com/listing/4550828607/daily-planner-for-students-printable-for"
   },
   {
-    title: "Picture Sudoku: Cut and Paste Logic Puzzles",
+    title: "Picture Sudoku for Kids – Printable Puzzles & Activity Book",
     page: "picture-sudoku-for-kids/",
-    note: "33 easy & medium picture puzzles, ages 4–6",
-    type: "printed",
+    note: "55 printable puzzles (ages 4–10) or 33-puzzle paperback (ages 4–6)",
+    type: "digital",
     image: "https://m.media-amazon.com/images/I/61QtcFwQAvL._SL600_.jpg",
-    price: "$9.99",
-    link: "https://www.amazon.com/dp/B0HRPT5D3W"
+    price: "From $1.49",
+    link: "https://www.etsy.com/listing/4626676092"
   },
   {
     title: "Duo Game Book: Alphabet Mazes & Tic-Tac-Toe",
